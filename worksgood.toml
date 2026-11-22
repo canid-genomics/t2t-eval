@@ -1,0 +1,43 @@
+schema_version = 1
+
+[models.assigner]
+model = "claude:sonnet"
+
+[models.chat_compactor]
+model = "claude:sonnet"
+
+[models.compactor]
+model = "claude:sonnet"
+
+[models.creator]
+model = "claude:sonnet"
+
+[models.default]
+model = "claude:opus"
+
+[models.evaluator]
+model = "claude:sonnet"
+
+[models.evolver]
+model = "claude:sonnet"
+
+[models.flip_comparison]
+model = "claude:sonnet"
+
+[models.flip_inference]
+model = "claude:sonnet"
+
+[models.placer]
+model = "claude:sonnet"
+
+[models.reviewer]
+model = "claude:sonnet"
+
+[models.task_agent]
+model = "claude:opus"
+
+[models.triage]
+model = "claude:sonnet"
+
+[models.verification]
+model = "claude:sonnet"

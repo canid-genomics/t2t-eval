@@ -1,0 +1,14 @@
+[workspace]
+authors = ["canid-genomics"]
+channels = ["conda-forge", "bioconda"]
+name = "t2t-eval"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+snakemake = "9.1.1.*"
+snakemake-executor-plugin-slurm = "1.8.0.*"
+snakemake-storage-plugin-s3 = "==0.3.6"
+pandas = ">=2.3.3,<3"

@@ -1,0 +1,9 @@
+# Local-dev overlay: dry runs on a laptop or in CI. Nothing touches Tier 2 (offload off), so
+# tier2() paths resolve under tier2/ in the repo, which is gitignored.
+lanes: ['jc', 'sf', 'shared']
+tier2_bucket: 's3://t2t'
+offload: false
+workdir: 'local_dev/scratch'
+samples: 'tests/fixture/samples.tsv'
+reference: {}
+run_id: 'dev.0000-00-00.0000000'

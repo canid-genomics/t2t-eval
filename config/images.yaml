@@ -1,0 +1,5 @@
+# Container images, pinned by digest (never by tag alone). Rules use
+#   container: config['images'][<key>]
+# Images are built by .github/workflows/images.yml from docker/<tool>/<version>/Dockerfile and
+# pushed to ghcr.io/canid-genomics/<tool>. Record each one in IMAGES.md as well.
+images: {}

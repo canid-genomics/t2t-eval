@@ -1,0 +1,28 @@
+name: ci
+# Lint and dry-run the workflow on the tiny fixture. No containers, no cluster, no Tier 2.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+      - name: lint (advisory)
+        # Two known lints come from tail2tail conventions (a false positive on slurm_log_path's
+        # '/{subdir}', and the reference-path helper in the Snakefile), so lint reports but
+        # doesn't block. The dry run below is the gate.
+        continue-on-error: true
+        run: pixi run snakemake --lint --configfile config/config.local.yaml
+      - name: dry run
+        run: pixi run snakemake -n --configfile config/config.local.yaml
+      - name: spec2wg parses SPEC.tsv
+        run: |
+          python3 -c "import ast,sys; ast.parse(open('scripts/spec2wg.py').read())"
+          python3 -c "
+          import importlib.util as u; s=u.spec_from_file_location('s','scripts/spec2wg.py'); m=u.module_from_spec(s); s.loader.exec_module(m)
+          from pathlib import Path; rows=m.read_spec(Path('SPEC.tsv')); by={r['id']:r for r in rows}
+          [list(m.tasks_for(r,by)) for r in rows]; print(len(rows),'rows ok')"

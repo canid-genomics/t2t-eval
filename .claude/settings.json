@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(wg:*)",
+      "Bash(pixi run snakemake -n:*)",
+      "Bash(pixi run snakemake --lint:*)",
+      "Bash(python3 scripts/spec2wg.py:*)",
+      "Bash(scripts/triage/parse_submit_log.py:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git checkout --:*)",
+      "Bash(git clean -f:*)",
+      "Bash(git rebase:*)",
+      "Bash(rm:*)",
+      "Bash(sudo:*)",
+      "Bash(sbatch:*)",
+      "Bash(scancel:*)"
+    ]
+  }
+}

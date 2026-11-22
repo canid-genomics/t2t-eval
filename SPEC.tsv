@@ -1,0 +1,8 @@
+# One row per unit of work. kind: agate (sequence data, 4-task chain) or local (one task).
+# after: comma list of SPEC ids. Cross-lane dependencies wait on a [handoff] message.
+# Both humans agree the rows before anyone runs spec2wg.py --apply.
+id	lane	kind	title	after	outputs	validation
+M01	jc	agate	ROS_Cfam_2.0 pri+alt: download, md5 check, gfastats and gap locations		t2t/ROS_Cfam_2.0/jc/assembly_stats.<date>.<sha7>/{md5.tsv,gfastats.tsv,gaps.bed}	md5s match NCBI; gfastats chromosome count matches NCBI (40 pri, 38 alt); every gap has coordinates
+M02	sf	agate	ROS_Cfam_2.0 pri+alt: telomere-motif scan at both ends of every chromosome		t2t/ROS_Cfam_2.0/sf/telomeres.<date>.<sha7>/telomeres.tsv	one row per chromosome end for both haplotypes, with motif counts and the method recorded
+M03	sf	local	Chromosome-completeness figure, pri vs alt (from M01 + M02)	M01,M02	reports/M03/completeness.{pdf,png} + source table	figure traces to reports/ tables, which trace to Tier 2 manifests and agate run commits
+M04	jc	local	One-paragraph summary of test 2	M01,M03	reports/M04/SUMMARY.md	every number appears in a reports/ table; approved by both humans

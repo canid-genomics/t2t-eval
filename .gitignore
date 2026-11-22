@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.so
+.mypy_cache/
+.pytest_cache/
+venv/
+.venv/
+
+# Data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.fa
+*.fasta
+*.fa.gz
+*.fasta.gz
+*.fna
+*.fna.gz
+*.fai
+*.gzi
+*.vcf
+*.vcf.gz
+*.tbi
+*.paf
+*.paf.gz
+*.gfa
+*.gfa.gz
+results/
+tier2/
+
+# Reports are committed; big file types inside them are not
+reports/**/*.bed.gz
+reports/**/*.paf
+reports/**/*.bam
+
+# Logs + benchmarks
+*.log
+*.out
+*.err
+benchmarks/
+
+# Snakemake
+.snakemake/
+slurm.*/
+
+# wg (the graph is per person; landing refuses a tracked .wg)
+.wg/
+.wg-worktrees/
+
+# Editor
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Pixi
+.pixi/*
+!.pixi/config.toml
+
+# Claude local overrides
+.claude/settings.local.json
+
+# Private config (never committed)
+config/private/*
+!config/private/.gitkeep
+
+# Local-dev scratch
+local_dev/scratch/
+!local_dev/scaffold.py
+
+# Track structure, not contents
+logs/steps/*
+logs/submit/*
+!logs/steps/.gitkeep
+!logs/submit/.gitkeep
+.wg

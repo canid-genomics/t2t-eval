@@ -1,0 +1,23 @@
+# Cluster (agate) config. Paths are absolute.
+
+# Lanes: who owns which outputs. Rules write only under their own lane (see tier2() in utils.py).
+lanes: ['jc', 'sf', 'shared']
+
+# Tier 2: the existing dog-first t2t bucket on s3Fried. Outputs land at
+#   s3://t2t/<assembly>/<lane>/<metric>.<YYYY-MM-DD>.<sha7>/
+# alongside the existing dog folders, each run folder with a _MANIFEST.txt.
+tier2_bucket: 's3://t2t'
+offload: true
+
+# Per-lane scratch (reaped; Tier 2 is the durable copy). Each person points this at their own lane.
+workdir: '/scratch.global/friedlab_T2TEVAL/jc'   # TODO: sf sets '/scratch.global/friedlab_T2TEVAL/sf'
+
+# Sample sheet: one row per assembly under evaluation. Committed (public data only).
+samples: 'config/samples.tsv'
+
+# Reference paths (absolute on agate; repo-relative in config.local.yaml).
+reference: {}
+
+# Run-id for this submission: <metric>.<YYYY-MM-DD>.<sha7>. Set by slurm/submit.slurm from the
+# ticket's `run_id:` line (--config run_id=...), so a resubmit of the same ticket reuses it.
+run_id: null

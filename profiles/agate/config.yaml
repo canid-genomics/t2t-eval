@@ -1,0 +1,23 @@
+executor: slurm
+# A rolling window: Snakemake keeps 300 jobs in SLURM and submits the next as each one ends.
+jobs: 300
+default-resources:
+  - slurm_account=fried255
+  - slurm_partition=msismall,msilarge,msibigmem
+  - runtime=60
+  - mem_mb=4000
+  - cpus_per_task=1
+
+max-jobs-per-second: 1
+max-status-checks-per-second: 5
+
+# Tier 2 through snakemake-storage-plugin-s3. Nothing S3 is set here: slurm/submit.slurm exports
+# the endpoint and the keys (from ~/.config/t2t-eval/tier2.env) so every rule job inherits them.
+
+# Per-rule overrides go here. Examples (uncomment and adjust):
+#
+# set-resources:
+#   my_alignment_rule:
+#     runtime: 720
+#     cpus_per_task: 32
+#     mem_mb: 96000

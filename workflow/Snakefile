@@ -1,0 +1,36 @@
+import pandas as pd
+from pathlib import Path
+
+REPO_ROOT = Path(workflow.basedir).parent
+
+# Image digests live in their own file; Snakemake has no !include, so load it as a second configfile.
+configfile: str(REPO_ROOT / 'config/images.yaml')
+
+workdir: config['workdir']
+include: 'scripts/utils.py'
+
+# Absolutize relative reference paths up front. On the cluster these no-op;
+# under config.local.yaml they become repo-rooted so the local fixture resolves.
+def _absolutize_reference_paths():
+    for key in list(config.get('reference', {})):
+        val = config['reference'].get(key)
+        if isinstance(val, str) and not val.startswith('/'):
+            config['reference'][key] = str(REPO_ROOT / val)
+
+_absolutize_reference_paths()
+
+# One row per assembly under evaluation; `subject` is the Tier 2 folder (e.g. ROS_Cfam_2.0).
+samples_df = pd.read_csv(REPO_ROOT / config['samples'], sep='\t', dtype=str)
+ASSEMBLIES = samples_df['assembly'].tolist()
+SUBJECT    = dict(zip(samples_df['assembly'], samples_df['subject']))
+
+wildcard_constraints:
+    assembly = r'[^/]+',
+    subject  = r'[^/]+'
+
+# Lane rule files: workflow/rules/<lane>_<metric>.smk. Each lane owns its own files.
+# include: 'rules/jc_assembly_stats.smk'
+
+rule all:
+    input:
+        []   # populate with each enabled metric's tier2() outputs
