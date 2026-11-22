@@ -20,8 +20,12 @@ set -euo pipefail
 
 cd "${SLURM_SUBMIT_DIR:-$PWD}"
 
-# The ticket pins what runs: `commit:` (must equal HEAD), `run_id:` and `targets:` lines.
-# Agents write tickets; only a human submits them. Remaining args pass through to snakemake.
+# The ticket pins what runs: `commit:`, `run_id:` and `targets:` lines, and optionally `lane:`
+# (jc, sf or shared), which points the run at that lane's scratch instead of the workdir in
+# config/config.yaml. `commit:` is the commit holding the rule; the ticket itself is committed after
+# it, so HEAD may be later, but only tickets/ may differ between the two. Agents write tickets;
+# only a human submits them. Remaining args pass through to snakemake.
+SCRATCH_BASE=/scratch.global/friedlab_T2TEVAL
 TICKET=''
 if [[ "${1:-}" == "--ticket" ]]; then
     TICKET=${2:?--ticket needs a path, e.g. tickets/M01.md}
@@ -29,15 +33,26 @@ if [[ "${1:-}" == "--ticket" ]]; then
 fi
 [[ -n "$TICKET" ]] || { echo "usage: submit.slurm --ticket tickets/<id>.md [snakemake args]" >&2; exit 1; }
 [[ -f "$TICKET" ]] || { echo "no ticket at $TICKET" >&2; exit 1; }
-field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1; }
-T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets)
+field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1 | sed 's/[[:space:]]*$//'; }
+T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets); T_LANE=$(field lane)
 : "${T_COMMIT:?ticket has no commit: line}" "${T_RUN_ID:?ticket has no run_id: line}" "${T_TARGETS:?ticket has no targets: line}"
-HEAD_SHA=$(git rev-parse HEAD)
-if [[ "$HEAD_SHA" != "$T_COMMIT"* ]]; then
-    echo "HEAD is $HEAD_SHA but $TICKET pins $T_COMMIT: git pull / checkout that commit first" >&2
+T_COMMIT_SHA=$(git rev-parse --verify --quiet "${T_COMMIT}^{commit}") \
+    || { echo "$TICKET pins $T_COMMIT, which is not a commit in this clone: git pull first" >&2; exit 1; }
+git merge-base --is-ancestor "$T_COMMIT_SHA" HEAD \
+    || { echo "$TICKET pins $T_COMMIT, which is not HEAD or an ancestor of it: git pull / checkout first" >&2; exit 1; }
+if ! git diff --quiet "$T_COMMIT_SHA" HEAD -- . ':!tickets'; then
+    echo "HEAD differs from $TICKET's commit $T_COMMIT outside tickets/; run that code or re-ticket:" >&2
+    git diff --stat "$T_COMMIT_SHA" HEAD -- . ':!tickets' >&2
     exit 1
 fi
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] || { echo "tracked files are modified; commit or stash first" >&2; exit 1; }
+# Everything goes in ONE --config: a second --config flag replaces the first instead of adding to it.
+# ticket_commit is what run_info.json records as the run's commit (HEAD may be a later tickets/ commit).
+CONFIG=(run_id="$T_RUN_ID" ticket_commit="$T_COMMIT_SHA")
+if [[ -n "$T_LANE" ]]; then
+    [[ "$T_LANE" =~ ^(jc|sf|shared)$ ]] || { echo "$TICKET: lane: must be jc, sf or shared, not '$T_LANE'" >&2; exit 1; }
+    CONFIG+=(workdir="$SCRATCH_BASE/$T_LANE")
+fi
 
 # Tier 2 keys (the shared s3Fried keys) come from this one file and nowhere else. It holds
 # two lines, AWS_ACCESS_KEY=... and AWS_SECRET_KEY=..., is chmod 600, and lives outside the repo,
@@ -77,7 +92,7 @@ pixi run snakemake \
     --software-deployment-method apptainer \
     --apptainer-prefix /projects/standard/fried255/shared/containers \
     --configfile config/config.yaml \
-    --config run_id="$T_RUN_ID" \
+    --config "${CONFIG[@]}" \
     --profile profiles/agate \
     --rerun-triggers mtime \
     --rerun-incomplete \
