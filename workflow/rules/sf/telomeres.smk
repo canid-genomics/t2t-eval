@@ -122,7 +122,7 @@ rule sf_ncbi_fetch:
     params:
         accession = lambda wc: SF_SAMPLE[wc.assembly]['accession']
     resources:
-        slurm_extra = lambda wc: slurm_log_path('sf_ncbi_fetch', wildcards_pattern='{assembly}')
+        slurm_extra = lambda wc: slurm_log_path('sf_ncbi_fetch', wildcards_pattern=wc.assembly)
     container: config['images']['python']
     script: '../../scripts/sf/ncbi_fetch.py'
 
@@ -141,7 +141,7 @@ rule sf_telomere_scan:
         accession = lambda wc: SF_SAMPLE[wc.assembly]['accession'],
         scan      = SF_TELOMERE_SCAN
     resources:
-        slurm_extra = lambda wc: slurm_log_path('sf_telomere_scan', wildcards_pattern='{assembly}')
+        slurm_extra = lambda wc: slurm_log_path('sf_telomere_scan', wildcards_pattern=wc.assembly)
     container: config['images']['python']
     script: '../../scripts/sf/telomere_scan.py'
 
@@ -171,6 +171,6 @@ rule sf_telomeres_publish:
         describes   = sf_spec_describes(SF_M02_SPEC),
         dest        = lambda wc: sf_m02_dest(wc.subject)
     resources:
-        slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern='{subject}')
+        slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern=wc.subject)
     container: config['images']['python']
     script: '../../scripts/sf/telomeres_publish.py'
