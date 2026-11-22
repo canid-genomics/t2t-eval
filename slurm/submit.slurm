@@ -66,7 +66,10 @@ fi
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] || { echo "tracked files are modified; commit or stash first" >&2; exit 1; }
 # Everything goes in ONE --config: a second --config flag replaces the first instead of adding to it.
 # ticket_commit is what run_info.json records as the run's commit (HEAD may be a later tickets/ commit).
-CONFIG=(run_id="$T_RUN_ID" ticket_commit="$T_COMMIT_SHA" workdir="$SCRATCH_BASE/$LANE")
+# submit_job is this submit job's SLURM id, for _MANIFEST.txt `job:` (rule jobs only see their own
+# SLURM_JOB_ID); it is empty for `bash ... -n` and other runs outside SLURM.
+CONFIG=(run_id="$T_RUN_ID" ticket_commit="$T_COMMIT_SHA" workdir="$SCRATCH_BASE/$LANE"
+        submit_job="${SLURM_JOB_ID:-}")
 
 # Tier 2 keys (the shared s3Fried keys) come from this one file and nowhere else. It holds
 # two lines, AWS_ACCESS_KEY=... and AWS_SECRET_KEY=..., is chmod 600, and lives outside the repo,

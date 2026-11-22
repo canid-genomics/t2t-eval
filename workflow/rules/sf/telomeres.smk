@@ -171,7 +171,8 @@ rule sf_telomeres_publish:
                        'sha256': hashlib.sha256(SF_SCAN_PY.read_bytes()).hexdigest()},
         provenance  = lambda wc: sf_provenance(),
         describes   = sf_spec_describes(SF_M02_SPEC),
-        dest        = lambda wc: sf_m02_dest(wc.subject)
+        dest        = lambda wc: sf_m02_dest(wc.subject),
+        submit_job  = str(config.get('submit_job') or '')
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern=wc.subject)
     container: config['images']['python']
