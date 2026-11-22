@@ -1,6 +1,7 @@
 """Download one NCBI GenBank assembly (FASTA, assembly report, md5checksums.txt) and verify md5s.
 
-Run by the `sf_ncbi_fetch` rule (`script:`), on agate scratch only; stdlib only, Python >= 3.11.
+Run by each lane's `<lane>_ncbi_fetch` rule (`script:`), on agate scratch only; stdlib only,
+Python >= 3.11.
 
 The assembly folder is found from the accession alone: NCBI keeps every assembly at
   https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/062/019/780/GCA_062019780.1_<asm name>/
