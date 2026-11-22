@@ -1,3 +1,5 @@
+import re
+
 import pandas as pd
 from pathlib import Path
 
@@ -5,6 +7,13 @@ REPO_ROOT = Path(workflow.basedir).parent
 
 # Image digests live in their own file; Snakemake has no !include, so load it as a second configfile.
 configfile: str(REPO_ROOT / 'config/images.yaml')
+
+# Every image must be a docker:// URI pinned by digest. Without the scheme Snakemake treats the
+# string as a local image path and the job dies at start (M02 job 7851561), so fail at parse time.
+_IMAGE_URI = re.compile(r'^docker://[^\s@]+@sha256:[0-9a-f]{64}$')
+_bad_images = {k: v for k, v in (config.get('images') or {}).items() if not _IMAGE_URI.match(str(v))}
+if _bad_images:
+    raise ValueError(f'config/images.yaml: each image must be docker://<registry>/<name>@sha256:<64 hex>, not {_bad_images}')
 
 workdir: config['workdir']
 include: 'scripts/utils.py'

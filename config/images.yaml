@@ -1,9 +1,12 @@
-# Container images, pinned by digest (never by tag alone). Rules use
+# Container images: `docker://` URIs pinned by digest (never by tag alone). Rules use
 #   container: config['images'][<key>]
+# The `docker://` scheme is required: without it Snakemake hands the string to apptainer as a
+# local image path, and the job fails before it starts (M02 job 7851561, 2026-11-22). The
+# Snakefile refuses any value that isn't `docker://<registry>/<name>@sha256:<64 hex>`.
 # Images are built by .github/workflows/images.yml from docker/<tool>/<version>/Dockerfile and
 # pushed to ghcr.io/canid-genomics/<tool>. Record each one in IMAGES.md as well.
 images:
   # docker/python/3.11 (Python 3.11.18), images workflow run 45058770486 on branch sf/M02, 2026-11-22.
-  python: 'ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57'
+  python: 'docker://ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57'
   # BioContainers gfastats 1.3.11 (bioconda build h077b44d_0), tag 1.3.11--h077b44d_0; linux/amd64.
   gfastats: 'quay.io/biocontainers/gfastats@sha256:f4903ca4ed682bca6c192cac13f9b0355f149947a7cf3e53bbd2580f3a50bdd7'
