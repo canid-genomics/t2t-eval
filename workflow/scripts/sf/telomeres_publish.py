@@ -3,11 +3,14 @@
 Run by the `sf_telomeres_publish` rule (`script:`); stdlib only, Python >= 3.11. Inputs are the
 per-assembly scan tables and NCBI fetch records for one subject; outputs are what lands under
   t2t/<subject>/sf/<run-id>/
-sha256sums.txt (`sha256sum -c` format) covers every file but itself and _MANIFEST.txt; the
-manifest lists every file with its size and sha256, after `lane:` and `commit:` lines.
+sha256sums.txt (`sha256sum -c` format) covers every file but itself and _MANIFEST.txt.
+_MANIFEST.txt is the t2t bucket's header-only block of aligned `key: value` lines (describes,
+source, dest, job, scope, finished, objects, size), then `lane:`, `commit:`, `run_id:` and
+`spec_id:`. It has no per-file rows; `objects:` and `size:` count the run folder's other files.
 """
 import hashlib
 import json
+import os
 import platform
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,6 +30,23 @@ def concat_tsv(paths, dest):
         body.extend(lines[1:])
     Path(dest).write_text('\n'.join([header, *body]) + '\n')
     return len(body)
+
+
+def human_size(n):
+    """Bytes in binary units with no space, as the bucket's manifests write them (e.g. 68GiB)."""
+    size, units = float(n), ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB']
+    unit = units.pop(0)
+    while size >= 1024 and units:
+        size, unit = size / 1024, units.pop(0)
+    if unit == 'B' or size >= 10:
+        return f'{size:.0f}{unit}'
+    return f"{f'{size:.1f}'.removesuffix('.0')}{unit}"
+
+
+def manifest_text(fields):
+    """`key: value` lines with the values aligned one space past the longest key's colon."""
+    width = max(len(k) for k in fields) + 1
+    return ''.join(f'{k + ":":<{width}} {v}\n' for k, v in fields.items())
 
 
 def sha256_file(path):
@@ -75,10 +95,15 @@ def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
 
 
 def publish(scan_tables, chromosome_tables, fetch_records, out, run_id, lane, subject, spec_id,
-            assemblies, scan, scan_script, provenance):
-    """Write every file of the run folder; `out` maps output names to local paths."""
-    for p in out.values():
-        Path(p).parent.mkdir(parents=True, exist_ok=True)
+            assemblies, scan, scan_script, provenance, describes, dest, job=None):
+    """Write every file of the run folder; `out` maps output names to local paths, all in one
+    folder (the manifest's `source:`). `dest` is the folder's Tier 2 location, `job` the SLURM job
+    id (None outside SLURM)."""
+    folders = {Path(p).parent.resolve() for p in out.values()}
+    if len(folders) != 1:
+        raise ValueError(f'outputs span {len(folders)} folders; a run folder is one: {sorted(map(str, folders))}')
+    source = folders.pop()
+    source.mkdir(parents=True, exist_ok=True)
     n_rows = concat_tsv(scan_tables, out['telomeres'])
     concat_tsv(chromosome_tables, out['chromosomes'])
     concat_tsv(fetch_records, out['inputs'])
@@ -97,21 +122,24 @@ def publish(scan_tables, chromosome_tables, fetch_records, out, run_id, lane, su
     Path(out['run_info']).write_text(json.dumps(run_info, indent=2, sort_keys=True) + '\n')
 
     listed = ['telomeres', 'chromosomes', 'inputs', 'method', 'run_info']
-    sums = [(sha256_file(out[k]), Path(out[k]).name, Path(out[k]).stat().st_size) for k in listed]
-    Path(out['sha256']).write_text(''.join(f'{h}  {name}\n' for h, name, _ in sums))
-    sums.append((sha256_file(out['sha256']), Path(out['sha256']).name, Path(out['sha256']).stat().st_size))
+    Path(out['sha256']).write_text(''.join(f'{sha256_file(out[k])}  {Path(out[k]).name}\n' for k in listed))
 
-    manifest = [
-        f'run_id: {run_id}',
-        f'lane: {lane}',
-        f"commit: {provenance['commit']}",
-        f'subject: {subject}',
-        f'spec_id: {spec_id}',
-        f'created_utc: {created}',
-        'files (sha256, bytes, name):',
-        *(f'{h}\t{size}\t{name}' for h, name, size in sums),
-    ]
-    Path(out['manifest']).write_text('\n'.join(manifest) + '\n')
+    objects = [Path(p) for k, p in out.items() if k != 'manifest']
+    fields = {
+        'describes': describes,
+        'source':    source,
+        'dest':      dest,
+        'job':       job or 'NA',
+        'scope':     'metric',
+        'finished':  datetime.now().astimezone().isoformat(timespec='seconds'),
+        'objects':   len(objects),
+        'size':      human_size(sum(p.stat().st_size for p in objects)),
+        'lane':      lane,
+        'commit':    provenance['commit'],
+        'run_id':    run_id,
+        'spec_id':   spec_id,
+    }
+    Path(out['manifest']).write_text(manifest_text(fields))
 
 
 if __name__ == '__main__' and 'snakemake' in globals():
@@ -121,4 +149,5 @@ if __name__ == '__main__' and 'snakemake' in globals():
             run_id=smk.params.run_id, lane=smk.params.lane, subject=smk.wildcards.subject,
             spec_id=smk.params.spec_id, assemblies=list(smk.params.assemblies),
             scan=dict(smk.params.scan), scan_script=dict(smk.params.scan_script),
-            provenance=dict(smk.params.provenance))
+            provenance=dict(smk.params.provenance), describes=smk.params.describes,
+            dest=smk.params.dest, job=os.environ.get('SLURM_JOB_ID'))

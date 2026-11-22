@@ -7,8 +7,10 @@ import hashlib
 import importlib.util
 import json
 import random
+import re
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
 from unittest import mock
 
@@ -273,37 +275,93 @@ class NcbiFetch(unittest.TestCase):
         self.assertEqual(list((self.dir / 'out').glob('*.part')), [])
 
 
-class Publish(unittest.TestCase):
-    def test_run_folder(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            d = Path(tmp)
-            cols = scan.telomere_columns(PARAMS)
-            for hap in ('pri', 'alt'):
-                scan.write_tsv(d / f'{hap}.t.tsv', cols, [])
-                scan.write_tsv(d / f'{hap}.c.tsv', scan.CHROMOSOME_COLUMNS, [])
-                scan.write_tsv(d / f'{hap}.f.tsv', fetch.RECORD_COLUMNS, [])
-            (d / 'pri.t.tsv').write_text((d / 'pri.t.tsv').read_text() + '\t'.join(['x'] * len(cols)) + '\n')
-            names = {'telomeres': 'telomeres.tsv', 'chromosomes': 'chromosomes.tsv', 'inputs': 'inputs.tsv',
-                     'method': 'method.txt', 'run_info': 'run_info.json', 'sha256': 'sha256sums.txt',
-                     'manifest': '_MANIFEST.txt'}
-            out = {k: d / 'run' / v for k, v in names.items()}
-            prov = {'commit': 'a' * 40, 'head': 'b' * 40, 'images': {'python': 'img@sha256:x'}}
-            publish.publish([d / 'pri.t.tsv', d / 'alt.t.tsv'], [d / 'pri.c.tsv', d / 'alt.c.tsv'],
-                            [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, 'telomeres.2026-11-22.aaaaaaa', 'sf',
-                            'TEST', 'M02', [{'assembly': 'TEST_pri', 'haplotype': 'pri', 'accession': 'GCA_1'}],
-                            PARAMS, {'path': 'x.py', 'sha256': 'c' * 64}, prov)
+MANIFEST_KEYS = ['describes', 'source', 'dest', 'job', 'scope', 'finished', 'objects', 'size',
+                 'lane', 'commit', 'run_id', 'spec_id']
 
-            self.assertEqual(len(out['telomeres'].read_text().splitlines()), 2)
-            for line in out['sha256'].read_text().splitlines():
-                digest, name = line.split('  ')
-                self.assertEqual(digest, hashlib.sha256((d / 'run' / name).read_bytes()).hexdigest())
-            manifest = out['manifest'].read_text().splitlines()
-            self.assertIn('lane: sf', manifest)
-            self.assertIn(f"commit: {'a' * 40}", manifest)
-            self.assertEqual(len([l for l in manifest if '\t' in l]), 6)
-            info = json.loads(out['run_info'].read_text())
-            self.assertEqual((info['commit'], info['lane'], info['run_id']), ('a' * 40, 'sf', 'telomeres.2026-11-22.aaaaaaa'))
-            self.assertIn('"max_gap_bp": 18', out['method'].read_text())
+
+class Publish(unittest.TestCase):
+    NAMES = {'telomeres': 'telomeres.tsv', 'chromosomes': 'chromosomes.tsv', 'inputs': 'inputs.tsv',
+             'method': 'method.txt', 'run_info': 'run_info.json', 'sha256': 'sha256sums.txt',
+             'manifest': '_MANIFEST.txt'}
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        d = self.dir = Path(self.tmp.name)
+        cols = scan.telomere_columns(PARAMS)
+        for hap in ('pri', 'alt'):
+            scan.write_tsv(d / f'{hap}.t.tsv', cols, [])
+            scan.write_tsv(d / f'{hap}.c.tsv', scan.CHROMOSOME_COLUMNS, [])
+            scan.write_tsv(d / f'{hap}.f.tsv', fetch.RECORD_COLUMNS, [])
+        (d / 'pri.t.tsv').write_text((d / 'pri.t.tsv').read_text() + '\t'.join(['x'] * len(cols)) + '\n')
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def publish(self, out, job='12345678'):
+        d = self.dir
+        prov = {'commit': 'a' * 40, 'head': 'b' * 40, 'images': {'python': 'img@sha256:x'}}
+        publish.publish([d / 'pri.t.tsv', d / 'alt.t.tsv'], [d / 'pri.c.tsv', d / 'alt.c.tsv'],
+                        [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, 'telomeres.2026-11-22.aaaaaaa', 'sf',
+                        'TEST', 'M02', [{'assembly': 'TEST_pri', 'haplotype': 'pri', 'accession': 'GCA_1'}],
+                        PARAMS, {'path': 'x.py', 'sha256': 'c' * 64}, prov,
+                        describes='SPEC.tsv M02: TEST pri+alt: telomere-motif scan',
+                        dest='s3Fried/t2t/TEST/sf/telomeres.2026-11-22.aaaaaaa', job=job)
+
+    def manifest(self, out):
+        """_MANIFEST.txt as {key: value}, after checking every line is an aligned `key: value`."""
+        lines = out['manifest'].read_text().splitlines()
+        pairs = [re.fullmatch(r'([a-z_]+):( +)(\S.*)', l) for l in lines]
+        self.assertTrue(all(pairs), lines)
+        value_cols = {len(m[1]) + 1 + len(m[2]) for m in pairs}
+        self.assertEqual(value_cols, {len('describes: ')}, 'values are not aligned')
+        return {m[1]: m[3] for m in pairs}
+
+    def test_run_folder(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        self.publish(out)
+        self.assertEqual(len(out['telomeres'].read_text().splitlines()), 2)
+        sums = out['sha256'].read_text().splitlines()
+        self.assertEqual(len(sums), 5)
+        for line in sums:
+            digest, name = line.split('  ')
+            self.assertEqual(digest, hashlib.sha256((self.dir / 'run' / name).read_bytes()).hexdigest())
+        info = json.loads(out['run_info'].read_text())
+        self.assertEqual((info['commit'], info['lane'], info['run_id']), ('a' * 40, 'sf', 'telomeres.2026-11-22.aaaaaaa'))
+        self.assertIn('"max_gap_bp": 18', out['method'].read_text())
+
+    def test_manifest_is_the_bucket_header_block(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        self.publish(out)
+        text = out['manifest'].read_text()
+        self.assertNotIn('\t', text)   # no per-object rows: sha256sums.txt holds those
+        m = self.manifest(out)
+        self.assertEqual(list(m), MANIFEST_KEYS)
+        self.assertEqual(m['describes'], 'SPEC.tsv M02: TEST pri+alt: telomere-motif scan')
+        self.assertEqual(m['source'], str((self.dir / 'run').resolve()))
+        self.assertEqual(m['dest'], 's3Fried/t2t/TEST/sf/telomeres.2026-11-22.aaaaaaa')
+        self.assertEqual((m['job'], m['scope']), ('12345678', 'metric'))
+        self.assertIsNotNone(datetime.fromisoformat(m['finished']).utcoffset())
+        others = [p for p in (self.dir / 'run').iterdir() if p.name != '_MANIFEST.txt']
+        self.assertEqual(int(m['objects']), len(others))
+        self.assertEqual(m['size'], publish.human_size(sum(p.stat().st_size for p in others)))
+        self.assertEqual((m['lane'], m['commit']), ('sf', 'a' * 40))
+        self.assertEqual((m['run_id'], m['spec_id']), ('telomeres.2026-11-22.aaaaaaa', 'M02'))
+
+    def test_manifest_job_outside_slurm(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        self.publish(out, job=None)
+        self.assertEqual(self.manifest(out)['job'], 'NA')
+
+    def test_outputs_in_two_folders_fail(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        out['manifest'] = self.dir / 'elsewhere' / '_MANIFEST.txt'
+        with self.assertRaisesRegex(ValueError, 'span 2 folders'):
+            self.publish(out)
+
+    def test_human_size(self):
+        cases = {0: '0B', 1023: '1023B', 1024: '1KiB', 1536: '1.5KiB', 10 * 1024 - 1: '10KiB',
+                 62_700: '61KiB', 1_500_000_000: '1.4GiB', 68 * 1024 ** 3: '68GiB', 3 * 1024 ** 4: '3TiB'}
+        self.assertEqual({n: publish.human_size(n) for n in cases}, cases)
 
     def test_header_mismatch_fails(self):
         with tempfile.TemporaryDirectory() as tmp:

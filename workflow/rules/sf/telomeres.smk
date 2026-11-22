@@ -3,6 +3,7 @@
 #   t2t/<subject>/sf/<run-id>/{telomeres,chromosomes,inputs}.tsv, method.txt, run_info.json,
 #                             sha256sums.txt, _MANIFEST.txt
 # Ticket target: sf_telomeres_all. Method and parameters: workflow/scripts/sf/telomere_scan.py.
+import csv
 import hashlib
 import json
 import re
@@ -25,6 +26,9 @@ SF_TELOMERE_SCAN = {
     'max_gap_bp': 18,
     'min_copies': 10,
 }
+
+# _MANIFEST.txt `dest:` names the bucket through this remote, as the t2t bucket's manifests do.
+SF_TIER2_REMOTE = 's3Fried'
 
 SF_SAMPLE    = samples_df.set_index('assembly').to_dict('index')
 SF_SUBJECTS  = sorted(set(SUBJECT.values()))
@@ -86,6 +90,24 @@ def sf_assemblies(subject):
     return [a for a in ASSEMBLIES if SUBJECT[a] == subject]
 
 
+def sf_spec_describes(spec_id):
+    """_MANIFEST.txt `describes:`, the SPEC.tsv row the run folder is a product of."""
+    lines = [l for l in (REPO_ROOT / 'SPEC.tsv').read_text().splitlines() if l.strip() and not l.startswith('#')]
+    titles = [r['title'] for r in csv.DictReader(lines, delimiter='\t') if r['id'] == spec_id]
+    if len(titles) != 1:
+        raise ValueError(f'SPEC.tsv has {len(titles)} rows with id {spec_id!r}, not 1')
+    return f'SPEC.tsv {spec_id}: {titles[0]}'
+
+
+def sf_m02_dest(subject):
+    """_MANIFEST.txt `dest:`, the run folder's Tier 2 location (under tier2/ with offload off)."""
+    rel = f'{subject}/sf/{sf_m02_run_id()}'
+    if not config.get('offload', False):
+        return f'tier2/{rel}'
+    bucket = config['tier2_bucket'].removeprefix('s3://').strip('/')
+    return f'{SF_TIER2_REMOTE}/{bucket}/{rel}'
+
+
 rule sf_telomeres_all:
     input:
         lambda wc: [sf_m02_out(s, f) for s in SF_SUBJECTS for f in SF_M02_FILES]
@@ -145,7 +167,9 @@ rule sf_telomeres_publish:
         assemblies  = lambda wc: [{'assembly': a, **SF_SAMPLE[a]} for a in sf_assemblies(wc.subject)],
         scan_script = {'path': 'workflow/scripts/sf/telomere_scan.py',
                        'sha256': hashlib.sha256(SF_SCAN_PY.read_bytes()).hexdigest()},
-        provenance  = lambda wc: sf_provenance()
+        provenance  = lambda wc: sf_provenance(),
+        describes   = sf_spec_describes(SF_M02_SPEC),
+        dest        = lambda wc: sf_m02_dest(wc.subject)
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern='{subject}')
     container: config['images']['python']
