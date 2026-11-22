@@ -26,3 +26,10 @@ set-resources:
   # M02 (sf): two NCBI FASTA downloads (0.72 and 0.77 GB) with retries; the scans fit the defaults.
   sf_ncbi_fetch:
     runtime: 240
+  # M01 (jc): the same two NCBI downloads; gfastats holds one 2.4 Gb assembly in memory, three passes.
+  jc_ncbi_fetch:
+    runtime: 240
+  jc_gfastats:
+    cpus_per_task: 4
+    mem_mb: 16000
+    runtime: 120

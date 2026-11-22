@@ -29,11 +29,12 @@ wildcard_constraints:
     subject  = r'[^/]+'
 
 # Lane rule files: workflow/rules/<lane>/<metric>.smk, in each lane's own folder.
-# include: 'rules/jc/assembly_stats.smk'
+include: 'rules/jc/assembly_stats.smk'
 include: 'rules/sf/telomeres.smk'
 
 # Each enabled metric's target rule. Tickets name a lane target, never `all`: the run-id is per ticket.
 rule all:
     default_target: True
     input:
+        rules.jc_assembly_stats_all.input,
         rules.sf_telomeres_all.input

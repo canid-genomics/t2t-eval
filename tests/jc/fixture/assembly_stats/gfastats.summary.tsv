@@ -1,0 +1,32 @@
+# scaffolds	3
+Total scaffold length	5318
+Average scaffold length	1772.67
+Scaffold N50	2810
+Scaffold auN	2237.04
+Scaffold L50	1
+Largest scaffold	2810
+Smallest scaffold	600
+# contigs	5
+Total contig length	5200
+Average contig length	1040.00
+Contig N50	2800
+Contig auN	1846.15
+Contig L50	1
+Largest contig	2800
+Smallest contig	200
+# gaps in scaffolds	4
+Total gap length in scaffolds	118
+Average gap length in scaffolds	29.50
+Gap N50 in scaffolds	100
+Gap auN in scaffolds	85.88
+Gap L50 in scaffolds	1
+Largest gap in scaffolds	100
+Smallest gap in scaffolds	3
+Base composition (A:C:G:T)	1700:900:1200:1400
+GC content %	40.38
+# soft-masked bases	205
+# segments	5
+Total segment length	5200
+Average segment length	1040.00
+# gaps	4
+# paths	3

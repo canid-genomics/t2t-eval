@@ -1,0 +1,4 @@
+Seq	Header	Comment	Total path length	Total segment length	Contig N	A	C	G	T	# soft-masked bases	Is circular
+1	chrA.1	synthetic chromosome A	1908	1800	3	400	500	500	400	205	N
+2	chrB.1	synthetic chromosome B	2810	2800	1	1200	400	400	800	0	N
+3	chrC.1		600	600	1	100	0	300	200	0	N
