@@ -2,4 +2,6 @@
 #   container: config['images'][<key>]
 # Images are built by .github/workflows/images.yml from docker/<tool>/<version>/Dockerfile and
 # pushed to ghcr.io/canid-genomics/<tool>. Record each one in IMAGES.md as well.
-images: {}
+images:
+  # TODO-digest: build docker/python/3.11 with the images workflow, then pin the printed digest.
+  python: 'ghcr.io/canid-genomics/python@sha256:TODO-digest'

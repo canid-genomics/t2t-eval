@@ -21,3 +21,8 @@ max-status-checks-per-second: 5
 #     runtime: 720
 #     cpus_per_task: 32
 #     mem_mb: 96000
+
+set-resources:
+  # M02 (sf): two NCBI FASTA downloads (0.72 and 0.77 GB) with retries; the scans fit the defaults.
+  sf_ncbi_fetch:
+    runtime: 240
