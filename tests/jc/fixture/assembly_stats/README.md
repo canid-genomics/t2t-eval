@@ -2,7 +2,7 @@
 
 `gfastats.{summary.tsv,sequences.tsv,gaps.bed}` are the output of the three `jc_gfastats`
 commands (`workflow/rules/jc/assembly_stats.smk`), run with the pinned image
-`quay.io/biocontainers/gfastats@sha256:f4903ca4…bdd7` (gfastats v1.3.11) on the FASTA that
+`docker://quay.io/biocontainers/gfastats@sha256:f4903ca4…bdd7` (gfastats v1.3.11) on the FASTA that
 `synthetic_fasta()` in `tests/jc/test_assembly_stats.py` writes (gzipped as `synthetic.fna.gz`):
 
 ```

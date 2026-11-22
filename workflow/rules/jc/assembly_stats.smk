@@ -121,7 +121,7 @@ rule jc_ncbi_fetch:
     params:
         accession = lambda wc: JC_SAMPLE[wc.assembly]['accession']
     resources:
-        slurm_extra = lambda wc: slurm_log_path('jc_ncbi_fetch', wildcards_pattern='{assembly}')
+        slurm_extra = lambda wc: slurm_log_path('jc_ncbi_fetch', wildcards_pattern=wc.assembly)
     container: config['images']['python']
     script: '../../scripts/shared/ncbi_fetch.py'
 
@@ -141,7 +141,7 @@ rule jc_gfastats:
         gaps      = JC_GFASTATS_ARGS['gaps']
     threads: 4
     resources:
-        slurm_extra = lambda wc: slurm_log_path('jc_gfastats', wildcards_pattern='{assembly}')
+        slurm_extra = lambda wc: slurm_log_path('jc_gfastats', wildcards_pattern=wc.assembly)
     container: config['images']['gfastats']
     shell:
         '''
@@ -174,6 +174,6 @@ rule jc_assembly_stats_publish:
         describes  = jc_spec_describes(JC_M01_SPEC),
         dest       = lambda wc: jc_m01_dest(wc.subject)
     resources:
-        slurm_extra = lambda wc: slurm_log_path('jc_assembly_stats_publish', wildcards_pattern='{subject}')
+        slurm_extra = lambda wc: slurm_log_path('jc_assembly_stats_publish', wildcards_pattern=wc.subject)
     container: config['images']['python']
     script: '../../scripts/jc/assembly_stats_publish.py'
