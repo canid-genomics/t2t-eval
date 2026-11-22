@@ -37,7 +37,9 @@ separate private repo. No personal paths, emails or credentials in any committed
 ## Glossary
 - **Lane:** whose work it is: `jc` (Jonah), `sf` (Steven), `shared`. Task ids start with the lane.
 - **SPEC row:** one unit of work in `SPEC.tsv`; `scripts/spec2wg.py` turns it into draft tasks.
-- **Ticket:** `tickets/<id>.md`, pinning the commit, run-id and targets of one agate run.
+- **Lane folder:** `<lane>/` under `tickets/`, `reports/`, `workflow/rules/` and `workflow/scripts/`;
+  it holds that lane's files, and `.github/CODEOWNERS` gives it to that lane's person.
+- **Ticket:** `tickets/<lane>/<id>.md`, pinning the commit, run-id and targets of one agate run.
 - **Run-id:** `<metric>.<YYYY-MM-DD>.<sha7>`, the same on scratch, Tier 2 and in `reports/`.
 - **Tier 2:** `s3://t2t/<assembly>/<lane>/<run-id>/` on s3Fried, beside the existing dog folders.
 - **Handoff:** a `[handoff]` mailbox message: commit SHA, run-id, Tier 2 path, repo paths.
@@ -49,17 +51,22 @@ separate private repo. No personal paths, emails or credentials in any committed
 - Any number not traceable to a `reports/` table → Tier 2 manifest → agate run commit.
 
 ## Lanes and file ownership
-- `jc` owns `workflow/rules/jc_*.smk`, `tickets/<jc ids>.md`, `reports/<jc ids>/`.
-- `sf` owns `workflow/rules/sf_*.smk`, its tickets and `reports/<sf ids>/`.
+- Each lane owns its four lane folders (`jc` shown; `sf` is the same with `sf/`):
+  `tickets/jc/<id>.md`, `reports/jc/<id>/`, `workflow/rules/jc/<metric>.smk` (included from
+  `workflow/Snakefile`) and `workflow/scripts/jc/` (the scripts and helpers those rules run).
+- `.github/CODEOWNERS` encodes this: each lane folder → its person (`sf` @sgfdvm, `jc`
+  @jonahcullen); everything else, `shared`-lane files included, → both.
+- Lane tests and their fixtures go under `tests/<lane>/`. That is not a lane folder (both review it).
 - **Shared files, PR only** (`git push origin main:<lane>/<topic>`, reviewed by the other person):
-  `workflow/Snakefile`, `config/`, `docker/`, `.github/`, `pixi.*`, `AGENTS.md`/`CLAUDE.md`,
-  `.claude/settings.json`, `SPEC.tsv`.
+  `workflow/Snakefile`, `config/`, `docker/`, `.github/` (including `CODEOWNERS`), `pixi.*`,
+  `AGENTS.md`/`CLAUDE.md`, `.claude/settings.json`, `SPEC.tsv`.
 - Rules write only `tier2(path, '<own lane>', subject)` outputs. Cross-lane inputs are read with
   the other lane's name, after its `[handoff]`.
 
 ## Where work happens
 - **agate:** all processing of sequence data, in containers, from a ticket:
-  `git pull && sbatch slurm/submit.slurm --ticket tickets/<id>.md` (dry run: `bash … -n`).
+  `git pull && sbatch slurm/submit.slurm --ticket tickets/<lane>/<id>.md` (dry run: `bash … -n`).
+  The ticket's folder sets the lane, and so the run's scratch.
   **Agents never `sbatch` or `scancel`.** Only humans submit.
 - **Local:** figures, tables, summaries, writing, and `pixi run snakemake -n --configfile
   config/config.local.yaml` dry runs. No sequence data on laptops.
@@ -69,7 +76,8 @@ separate private repo. No personal paths, emails or credentials in any committed
 SPEC row (agreed by both humans) → `python3 scripts/spec2wg.py --lane <lane>` (dry run) →
 `--apply` (drafts) → human reviews → `wg publish <first-task> --wcc` →
 `python3 scripts/spec2wg.py --lane <lane> --hold` (re-pauses `-run` tasks and handoff waits) →
-workers: `-ticket` → **human submits on agate, then `wg resume <lane>/<id>-run`** → `-report` →
+workers: `-ticket` (rule in `workflow/rules/<lane>/`, ticket at `tickets/<lane>/<id>.md`) →
+**human submits on agate, then `wg resume <lane>/<id>-run`** → `-report` (`reports/<lane>/<id>/`) →
 `-summary` → human approves → human reviews and pushes (`scripts/review-before-push.sh`).
 
 ## Commit model (project override)
@@ -88,7 +96,7 @@ workers: `-ticket` → **human submits on agate, then `wg resume <lane>/<id>-run
 - Every run writes `run_info.json` (git sha, config hash, image digests, Snakemake and plugin
   versions), a sha256 listing, and a `_MANIFEST.txt` in the t2t bucket's format plus `lane:` and
   `commit:` lines.
-- `reports/<id>/` holds the small committed outputs. Inputs ≤5 MB may be committed; everything
+- `reports/<lane>/<id>/` holds the small committed outputs. Inputs ≤5 MB may be committed; everything
   else is referenced by path, Tier 2 URI and sha256.
 - Shared `s3Fried` keys: write only under your own lane; never delete or overwrite another lane's
   objects. Deletes are human-only and announced with a `[decision]` message.

@@ -62,7 +62,7 @@ Do **not** read stderr for `rule_timeout_cap` or `sample_size_correlated` classi
 
 For each rule classified `rule_bug` or `rule_bug_plus_timeout`:
 ```bash
-grep -l "^rule {rule_name}:" workflow/rules/*.smk
+grep -rl --include="*.smk" "^rule {rule_name}:" workflow/rules
 ```
 Read that rule definition. Check for:
 - Missing or broken `conda:` env path (cross-check the env hash from stderr if pointed there)

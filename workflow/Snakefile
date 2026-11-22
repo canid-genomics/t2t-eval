@@ -28,8 +28,8 @@ wildcard_constraints:
     assembly = r'[^/]+',
     subject  = r'[^/]+'
 
-# Lane rule files: workflow/rules/<lane>_<metric>.smk. Each lane owns its own files.
-# include: 'rules/jc_assembly_stats.smk'
+# Lane rule files: workflow/rules/<lane>/<metric>.smk, in each lane's own folder.
+# include: 'rules/jc/assembly_stats.smk'
 
 rule all:
     input:

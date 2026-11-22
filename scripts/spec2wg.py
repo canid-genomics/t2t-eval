@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """SPEC.tsv -> draft wg tasks for one lane.
 
-    python scripts/spec2wg.py --lane jc            # dry run: print the wg commands
+    python scripts/spec2wg.py --lane jc            # dry run: print the wg commands and descriptions
     python scripts/spec2wg.py --lane jc --apply    # create the drafts (never publishes)
     wg publish <first-task> --wcc                  # the human releases the batch
     python scripts/spec2wg.py --lane jc --hold     # right after publishing: re-pause the holds
 
 Rows of kind `agate` become a four-task chain:
-    <lane>/<id>-ticket   worker writes the rule + tickets/<id>.md, with the dry-run output
+    <lane>/<id>-ticket   worker writes workflow/rules/<lane>/<metric>.smk (scripts in
+                         workflow/scripts/<lane>/) + tickets/<lane>/<id>.md, with the dry-run output
     <lane>/<id>-run      shell task, held paused: the human submits on agate, then `wg resume`s it
-    <lane>/<id>-report   worker copies the small Tier 2 outputs to reports/<id>/, with run_info.json
+    <lane>/<id>-report   worker copies the small Tier 2 outputs to reports/<lane>/<id>/, with
+                         run_info.json
     <lane>/<id>-summary  worker writes a 3-line summary; a human approves it before it is a claim
 Rows of kind `local` become one task, <lane>/<id>.
 
@@ -75,28 +77,30 @@ def tasks_for(row, by_id):
         return
 
     t, r, p, s = (f'{lane}/{rid}-{x}' for x in ('ticket', 'run', 'report', 'summary'))
+    ticket, report = f'tickets/{lane}/{rid}.md', f'reports/{lane}/{rid}'
     yield (t, f"{rid} ticket: {row['title']}", after,
-           f'{spec}{wait_note}\n\nWrite or port the rule(s) under workflow/rules/{lane}_*.smk, writing only '
-           f"tier2(..., '{lane}', subject) outputs, and write tickets/{rid}.md (commit, run_id, targets).\n\n"
+           f'{spec}{wait_note}\n\nWrite or port the rule(s) in workflow/rules/{lane}/<metric>.smk (included '
+           f'from workflow/Snakefile), with any scripts in workflow/scripts/{lane}/, writing only '
+           f"tier2(..., '{lane}', subject) outputs, and write {ticket} (commit, run_id, targets).\n\n"
            + validation('`pixi run snakemake -n --configfile config/config.local.yaml` succeeds and its '
                         'output is pasted into the ticket',
-                        f'tickets/{rid}.md has commit:, run_id: and targets: lines; commit: is the commit '
+                        f'{ticket} has commit:, run_id: and targets: lines; commit: is the commit '
                         'that holds the rule',
                         'Containers are pinned by digest in config/images.yaml'),
            [], bool(waits))
     yield (r, f'{rid} agate run (human)', [t],
            f'HUMAN STEP. No agent runs this. On agate: `git pull && sbatch slurm/submit.slurm --ticket '
-           f'tickets/{rid}.md`. When the job has finished and its outputs are on Tier 2: '
+           f'{ticket}`. When the job has finished and its outputs are on Tier 2: '
            f'`wg resume {r}`. This shell task then completes and the report task follows.',
            ['--exec-mode', 'shell', '--exec', 'true'], True)
     yield (p, f'{rid} report', [r],
-           f'{spec}\n\nCopy the small Tier 2 outputs for this run into reports/{rid}/ with run_info.json and '
+           f'{spec}\n\nCopy the small Tier 2 outputs for this run into {report}/ with run_info.json and '
            f'a sha256 listing. Record the run in PROVENANCE.md.\n\n'
-           + validation(row['validation'], f'reports/{rid}/ holds run_info.json whose git sha matches '
-                        f'tickets/{rid}.md', 'sha256 listing matches the Tier 2 objects'),
+           + validation(row['validation'], f'{report}/ holds run_info.json whose git sha matches '
+                        f'{ticket}', 'sha256 listing matches the Tier 2 objects'),
            [], False)
     yield (s, f'{rid} summary', [p],
-           f'Three-line summary of reports/{rid}/ in reports/{rid}/SUMMARY.md: what was measured, the '
+           f'Three-line summary of {report}/ in {report}/SUMMARY.md: what was measured, the '
            f'headline numbers with their source table, and caveats. Not a claim until a human approves it.\n\n'
            + validation('Every number in SUMMARY.md appears in a reports/ table',
                         'No interpretation beyond what the tables show'),
@@ -140,7 +144,8 @@ def main():
             cmd += ['--after', dep]
         if not a.apply:
             print(f'wg add {title!r} --id {task_id}', *(f'--after {d}' for d in after), *extra,
-                  '-d <description>', '(held after publish)' if hold else '')
+                  '-d <description below>', '(held after publish)' if hold else '')
+            print(''.join(f'    | {line}'.rstrip() + '\n' for line in desc.splitlines()))
             continue
         if exists(task_id):
             print(f'skip {task_id} (exists)')

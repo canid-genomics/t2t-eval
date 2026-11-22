@@ -65,5 +65,5 @@ def run_id():
     """This submission's run-id, <metric>.<YYYY-MM-DD>.<sha7>, from the ticket via --config."""
     rid = config.get('run_id')
     if not rid:
-        raise ValueError('run_id is unset: submit with slurm/submit.slurm --ticket tickets/<id>.md')
+        raise ValueError('run_id is unset: submit with slurm/submit.slurm --ticket tickets/<lane>/<id>.md')
     return rid

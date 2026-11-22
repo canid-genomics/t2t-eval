@@ -8,7 +8,8 @@ cd "$(git rev-parse --show-toplevel)"
 UPSTREAM=$(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>/dev/null || true)
 RANGE=${UPSTREAM:+$UPSTREAM..main}
 RANGE=${RANGE:-main}   # nothing pushed yet: review everything
-SHARED='^(workflow/Snakefile|config/|docker/|\.github/|pixi\.(toml|lock)|AGENTS\.md|CLAUDE\.md|\.claude/settings\.json)'
+# The shared files of CLAUDE.md ("Lanes and file ownership"); \.github/ covers .github/CODEOWNERS.
+SHARED='^(workflow/Snakefile|config/|docker/|\.github/|pixi\.(toml|lock)|AGENTS\.md|CLAUDE\.md|\.claude/settings\.json|SPEC\.tsv)'
 
 echo "Commits in $RANGE:"
 git log --reverse --format='%h %s' "$RANGE"
