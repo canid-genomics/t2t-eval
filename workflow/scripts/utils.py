@@ -61,9 +61,21 @@ def tier2(path, lane, subject=None):
     return f'tier2/{rel}'
 
 
+# What run_id() gives without a ticket, so the workflow still parses (`snakemake --list`, `--unlock`
+# with config.yaml). Clearly fake, and nothing goes to Tier 2 under it: refuse_unset_run_id() (the
+# Snakefile's onstart) stops an offload run before any job, and publish scripts refuse it too.
+RUN_ID_UNSET = 'unset.0000-00-00.0000000'
+
+
 def run_id():
-    """This submission's run-id, <metric>.<YYYY-MM-DD>.<sha7>, from the ticket via --config."""
-    rid = config.get('run_id')
-    if not rid:
-        raise ValueError('run_id is unset: submit with slurm/submit.slurm --ticket tickets/<lane>/<id>.md')
-    return rid
+    """This submission's run-id, <metric>.<YYYY-MM-DD>.<sha7>, from the ticket via --config, or
+    RUN_ID_UNSET when no ticket set it."""
+    return config.get('run_id') or RUN_ID_UNSET
+
+
+def refuse_unset_run_id():
+    """Refuse a run that would write Tier 2 (offload on) with no ticket run_id."""
+    if config.get('offload', False) and run_id() == RUN_ID_UNSET:
+        raise ValueError(f'run_id is unset ({RUN_ID_UNSET}) and offload is on: nothing may go to '
+                         'Tier 2 without a ticket; submit with slurm/submit.slurm --ticket '
+                         'tickets/<lane>/<id>.md')

@@ -297,11 +297,11 @@ class Publish(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def publish(self, out, job='12345678'):
+    def publish(self, out, job='12345678', run_id='telomeres.2026-11-22.aaaaaaa'):
         d = self.dir
         prov = {'commit': 'a' * 40, 'head': 'b' * 40, 'images': {'python': 'img@sha256:x'}}
         publish.publish([d / 'pri.t.tsv', d / 'alt.t.tsv'], [d / 'pri.c.tsv', d / 'alt.c.tsv'],
-                        [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, 'telomeres.2026-11-22.aaaaaaa', 'sf',
+                        [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, run_id, 'sf',
                         'TEST', 'M02', [{'assembly': 'TEST_pri', 'haplotype': 'pri', 'accession': 'GCA_1'}],
                         PARAMS, {'path': 'x.py', 'sha256': 'c' * 64}, prov,
                         describes='SPEC.tsv M02: TEST pri+alt: telomere-motif scan',
@@ -351,6 +351,12 @@ class Publish(unittest.TestCase):
         out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
         self.publish(out, job=None)
         self.assertEqual(self.manifest(out)['job'], 'NA')
+
+    def test_unset_run_id_is_refused_before_any_write(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        with self.assertRaisesRegex(ValueError, 'run_id is unset'):
+            self.publish(out, run_id=publish.RUN_ID_UNSET)
+        self.assertFalse((self.dir / 'run').exists())
 
     def test_outputs_in_two_folders_fail(self):
         out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}

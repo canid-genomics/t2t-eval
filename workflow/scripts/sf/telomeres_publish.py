@@ -15,6 +15,9 @@ import platform
 from datetime import datetime, timezone
 from pathlib import Path
 
+# workflow/scripts/utils.py RUN_ID_UNSET: run_id() without a ticket. A run folder never has it.
+RUN_ID_UNSET = 'unset.0000-00-00.0000000'
+
 
 def concat_tsv(paths, dest):
     """Concatenate TSVs that share one header line; refuse if the headers differ."""
@@ -98,7 +101,10 @@ def publish(scan_tables, chromosome_tables, fetch_records, out, run_id, lane, su
             assemblies, scan, scan_script, provenance, describes, dest, job=None):
     """Write every file of the run folder; `out` maps output names to local paths, all in one
     folder (the manifest's `source:`). `dest` is the folder's Tier 2 location, `job` the SLURM job
-    id (None outside SLURM)."""
+    id (None outside SLURM). Refuses the no-ticket run_id before writing anything."""
+    if run_id == RUN_ID_UNSET:
+        raise ValueError(f'run_id is unset ({RUN_ID_UNSET}): a Tier 2 run folder needs a ticket '
+                         'run_id (slurm/submit.slurm --ticket tickets/sf/<id>.md)')
     folders = {Path(p).parent.resolve() for p in out.values()}
     if len(folders) != 1:
         raise ValueError(f'outputs span {len(folders)} folders; a run folder is one: {sorted(map(str, folders))}')
