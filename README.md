@@ -20,8 +20,8 @@ Interactive sessions: create `.claude/settings.local.json` with `"ask"` for `git
 ```bash
 pixi run snakemake -n --configfile config/config.local.yaml      # local dry run
 python3 scripts/spec2wg.py --lane jc                              # SPEC rows → wg drafts (dry run)
-bash slurm/submit.slurm --ticket tickets/M01.md -n                # agate: dry run a ticket
-sbatch slurm/submit.slurm --ticket tickets/M01.md                 # agate: submit (humans only)
+bash slurm/submit.slurm --ticket tickets/jc/M01.md -n             # agate: dry run a ticket
+sbatch slurm/submit.slurm --ticket tickets/jc/M01.md              # agate: submit (humans only)
 scripts/review-before-push.sh                                     # before every push
 ```
 

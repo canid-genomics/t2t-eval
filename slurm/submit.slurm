@@ -1,8 +1,8 @@
 #!/bin/bash -l
 # Submit from the repo root on agate (a git clone, kept current with `git pull`):
-#   sbatch slurm/submit.slurm --ticket tickets/<id>.md
+#   sbatch slurm/submit.slurm --ticket tickets/<lane>/<id>.md
 # Dry run with the same keys and settings, on the login node:
-#   bash slurm/submit.slurm --ticket tickets/<id>.md -n
+#   bash slurm/submit.slurm --ticket tickets/<lane>/<id>.md -n
 # --output/--error are evaluated against the submit cwd, not the script location.
 # --rerun-incomplete: an interrupted run (walltime kill, MSI event, scancel) marks
 # outputs incomplete and the next run aborts without it.
@@ -20,21 +20,39 @@ set -euo pipefail
 
 cd "${SLURM_SUBMIT_DIR:-$PWD}"
 
-# The ticket pins what runs: `commit:`, `run_id:` and `targets:` lines, and optionally `lane:`
-# (jc, sf or shared), which points the run at that lane's scratch instead of the workdir in
-# config/config.yaml. `commit:` is the commit holding the rule; the ticket itself is committed after
-# it, so HEAD may be later, but only tickets/ may differ between the two. Agents write tickets;
-# only a human submits them. Remaining args pass through to snakemake.
+# The ticket pins what runs: `commit:`, `run_id:` and `targets:` lines. Its folder,
+# tickets/<lane>/, is its lane (jc, sf or shared) and points the run at that lane's scratch; an
+# optional `lane:` line must agree. `commit:` is the commit holding the rule; the ticket itself is
+# committed after it, so HEAD may be later, but only tickets/ may differ between the two. Agents
+# write tickets; humans submit them, apart from the sf-lane exception in CLAUDE.md ("Where work
+# happens"). Remaining args pass through to snakemake, except --delete-* (below).
 SCRATCH_BASE=/scratch.global/friedlab_T2TEVAL
 TICKET=''
 if [[ "${1:-}" == "--ticket" ]]; then
-    TICKET=${2:?--ticket needs a path, e.g. tickets/M01.md}
+    TICKET=${2:?--ticket needs a path, e.g. tickets/jc/M01.md}
     shift 2
 fi
-[[ -n "$TICKET" ]] || { echo "usage: submit.slurm --ticket tickets/<id>.md [snakemake args]" >&2; exit 1; }
+[[ -n "$TICKET" ]] || { echo "usage: submit.slurm --ticket tickets/<lane>/<id>.md [snakemake args]" >&2; exit 1; }
+# Exactly tickets/<lane>/<file>.md, relative to the repo root: no ./, no .., no absolute path.
+TICKET_RE='^tickets/(jc|sf|shared)/[A-Za-z0-9._-]+\.md$'
+[[ "$TICKET" =~ $TICKET_RE ]] \
+    || { echo "$TICKET: give the ticket as tickets/<jc|sf|shared>/<id>.md, from the repo root" >&2; exit 1; }
+LANE=${BASH_REMATCH[1]}
 [[ -f "$TICKET" ]] || { echo "no ticket at $TICKET" >&2; exit 1; }
+# Only a committed ticket runs: a plain file git tracks (the tracked-files check below catches
+# local edits to it). The sf-lane exception keys on this path.
+[[ ! -L "$TICKET" ]] || { echo "$TICKET is a symlink; a ticket is a plain file" >&2; exit 1; }
+git ls-files --error-unmatch -- "$TICKET" >/dev/null 2>&1 \
+    || { echo "$TICKET is not committed: commit it, then submit" >&2; exit 1; }
+# Deletes on scratch and Tier 2 are human-only, and never part of a ticket run. Snakemake's
+# --delete-all-output and --delete-temp-output, or any abbreviation of them, start with --delete-.
+for arg in "$@"; do
+    [[ "$arg" != --delete-* ]] || { echo "submit.slurm does not pass $arg: deletes are human-only" >&2; exit 1; }
+done
 field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1 | sed 's/[[:space:]]*$//'; }
 T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets); T_LANE=$(field lane)
+[[ -z "$T_LANE" || "$T_LANE" == "$LANE" ]] \
+    || { echo "$TICKET: lane: says '$T_LANE' but the ticket is in tickets/$LANE/" >&2; exit 1; }
 : "${T_COMMIT:?ticket has no commit: line}" "${T_RUN_ID:?ticket has no run_id: line}" "${T_TARGETS:?ticket has no targets: line}"
 T_COMMIT_SHA=$(git rev-parse --verify --quiet "${T_COMMIT}^{commit}") \
     || { echo "$TICKET pins $T_COMMIT, which is not a commit in this clone: git pull first" >&2; exit 1; }
@@ -48,11 +66,7 @@ fi
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] || { echo "tracked files are modified; commit or stash first" >&2; exit 1; }
 # Everything goes in ONE --config: a second --config flag replaces the first instead of adding to it.
 # ticket_commit is what run_info.json records as the run's commit (HEAD may be a later tickets/ commit).
-CONFIG=(run_id="$T_RUN_ID" ticket_commit="$T_COMMIT_SHA")
-if [[ -n "$T_LANE" ]]; then
-    [[ "$T_LANE" =~ ^(jc|sf|shared)$ ]] || { echo "$TICKET: lane: must be jc, sf or shared, not '$T_LANE'" >&2; exit 1; }
-    CONFIG+=(workdir="$SCRATCH_BASE/$T_LANE")
-fi
+CONFIG=(run_id="$T_RUN_ID" ticket_commit="$T_COMMIT_SHA" workdir="$SCRATCH_BASE/$LANE")
 
 # Tier 2 keys (the shared s3Fried keys) come from this one file and nowhere else. It holds
 # two lines, AWS_ACCESS_KEY=... and AWS_SECRET_KEY=..., is chmod 600, and lives outside the repo,

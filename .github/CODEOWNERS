@@ -1,0 +1,15 @@
+# Who reviews what (CLAUDE.md, "Lanes and file ownership"). The last matching line wins.
+# Everything is shared, and so owned by both, except each lane's four lane folders.
+*                      @sgfdvm @jonahcullen
+
+# sf lane (Steven)
+/tickets/sf/           @sgfdvm
+/reports/sf/           @sgfdvm
+/workflow/rules/sf/    @sgfdvm
+/workflow/scripts/sf/  @sgfdvm
+
+# jc lane (Jonah)
+/tickets/jc/           @jonahcullen
+/reports/jc/           @jonahcullen
+/workflow/rules/jc/    @jonahcullen
+/workflow/scripts/jc/  @jonahcullen

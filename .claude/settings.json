@@ -14,7 +14,11 @@
       "Bash(python3 scripts/spec2wg.py:*)",
       "Bash(scripts/triage/parse_submit_log.py:*)",
       "Bash(ls:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(sbatch slurm/submit.slurm --ticket tickets/sf/*)"
+    ],
+    "ask": [
+      "Bash(scancel:*)"
     ],
     "deny": [
       "Bash(git push:*)",
@@ -24,8 +28,23 @@
       "Bash(git rebase:*)",
       "Bash(rm:*)",
       "Bash(sudo:*)",
-      "Bash(sbatch:*)",
-      "Bash(scancel:*)"
+      "Bash(sbatch slurm/submit.slurm --ticket tickets/jc/*)",
+      "Bash(sbatch slurm/submit.slurm --ticket tickets/shared/*)",
+      "Bash(sbatch -*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(sbatch *)",
+            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/hooks/sbatch_guard.py\""
+          }
+        ]
+      }
     ]
   }
 }
