@@ -24,7 +24,8 @@ cd "${SLURM_SUBMIT_DIR:-$PWD}"
 # tickets/<lane>/, is its lane (jc, sf or shared) and points the run at that lane's scratch; an
 # optional `lane:` line must agree. `commit:` is the commit holding the rule; the ticket itself is
 # committed after it, so HEAD may be later, but only tickets/ may differ between the two. Agents
-# write tickets; only a human submits them. Remaining args pass through to snakemake.
+# write tickets; humans submit them, apart from the sf-lane exception in CLAUDE.md ("Where work
+# happens"). Remaining args pass through to snakemake, except --delete-* (below).
 SCRATCH_BASE=/scratch.global/friedlab_T2TEVAL
 TICKET=''
 if [[ "${1:-}" == "--ticket" ]]; then
@@ -38,6 +39,16 @@ TICKET_RE='^tickets/(jc|sf|shared)/[A-Za-z0-9._-]+\.md$'
     || { echo "$TICKET: give the ticket as tickets/<jc|sf|shared>/<id>.md, from the repo root" >&2; exit 1; }
 LANE=${BASH_REMATCH[1]}
 [[ -f "$TICKET" ]] || { echo "no ticket at $TICKET" >&2; exit 1; }
+# Only a committed ticket runs: a plain file git tracks (the tracked-files check below catches
+# local edits to it). The sf-lane exception keys on this path.
+[[ ! -L "$TICKET" ]] || { echo "$TICKET is a symlink; a ticket is a plain file" >&2; exit 1; }
+git ls-files --error-unmatch -- "$TICKET" >/dev/null 2>&1 \
+    || { echo "$TICKET is not committed: commit it, then submit" >&2; exit 1; }
+# Deletes on scratch and Tier 2 are human-only, and never part of a ticket run. Snakemake's
+# --delete-all-output and --delete-temp-output, or any abbreviation of them, start with --delete-.
+for arg in "$@"; do
+    [[ "$arg" != --delete-* ]] || { echo "submit.slurm does not pass $arg: deletes are human-only" >&2; exit 1; }
+done
 field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1 | sed 's/[[:space:]]*$//'; }
 T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets); T_LANE=$(field lane)
 [[ -z "$T_LANE" || "$T_LANE" == "$LANE" ]] \

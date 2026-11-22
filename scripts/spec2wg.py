@@ -88,9 +88,12 @@ def tasks_for(row, by_id):
                         'that holds the rule',
                         'Containers are pinned by digest in config/images.yaml'),
            [], bool(waits))
+    who = ("HUMAN STEP (or Steven's Claude, under the sf-lane exception in CLAUDE.md)" if lane == 'sf'
+           else 'HUMAN STEP')
     yield (r, f'{rid} agate run (human)', [t],
-           f'HUMAN STEP. No agent runs this. On agate: `git pull && sbatch slurm/submit.slurm --ticket '
-           f'{ticket}`. When the job has finished and its outputs are on Tier 2: '
+           f'{who}. No wg worker runs this task. On agate: `git pull`, then, on its own, '
+           f'`sbatch slurm/submit.slurm --ticket {ticket}`. When the job has finished and its outputs '
+           f'are on Tier 2: '
            f'`wg resume {r}`. This shell task then completes and the report task follows.',
            ['--exec-mode', 'shell', '--exec', 'true'], True)
     yield (p, f'{rid} report', [r],
