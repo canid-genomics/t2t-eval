@@ -1,0 +1,12 @@
+describes: SPEC.tsv M02: ROS_Cfam_2.0 pri+alt: telomere-motif scan at both ends of every chromosome
+source:    /scratch.global/friedlab_T2TEVAL/sf/.snakemake/storage/s3/t2t/ROS_Cfam_2.0/sf/telomeres.2026-11-22.a88f9b4
+dest:      s3Fried/t2t/ROS_Cfam_2.0/sf/telomeres.2026-11-22.a88f9b4
+job:       7853394
+scope:     metric
+finished:  2026-11-22T16:27:05-06:00
+objects:   6
+size:      36KiB
+lane:      sf
+commit:    a88f9b4d7c1424dc8918116be04855978cb03f67
+run_id:    telomeres.2026-11-22.a88f9b4
+spec_id:   M02

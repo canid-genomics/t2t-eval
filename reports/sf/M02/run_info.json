@@ -1,0 +1,51 @@
+{
+  "assemblies": [
+    {
+      "accession": "GCA_062019780.1",
+      "assembly": "ROS_Cfam_2.0_pri",
+      "haplotype": "pri",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    },
+    {
+      "accession": "GCA_062019781.1",
+      "assembly": "ROS_Cfam_2.0_alt",
+      "haplotype": "alt",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    }
+  ],
+  "commit": "a88f9b4d7c1424dc8918116be04855978cb03f67",
+  "config_sha256": "4b437610e654f28d634ead167c479756b1293700d8447418bee4db7fb6ee3564",
+  "container_python": "3.11.18",
+  "created_utc": "2026-11-22T22:27:05Z",
+  "head": "b1c4474b5bf8f2f4d1630d05ad4b4e3fd6f7df0a",
+  "images": {
+    "python": "docker://ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57"
+  },
+  "lane": "sf",
+  "run_id": "telomeres.2026-11-22.a88f9b4",
+  "scan_params": {
+    "max_gap_bp": 18,
+    "min_copies": 10,
+    "motif": "TTAGGG",
+    "search_bp": 100000,
+    "windows_bp": [
+      1000,
+      10000,
+      100000
+    ]
+  },
+  "scan_script": {
+    "path": "workflow/scripts/sf/telomere_scan.py",
+    "sha256": "a10e298aa9bc99fc4e36b50207c92f180efd3eba363689aeeb2f7eadcba8ffaf"
+  },
+  "spec_id": "M02",
+  "subject": "ROS_Cfam_2.0",
+  "tracked_dirty": false,
+  "versions": {
+    "snakemake": "9.1.1",
+    "snakemake-executor-plugin-slurm": "1.8.0",
+    "snakemake-storage-plugin-s3": "0.3.6"
+  }
+}
