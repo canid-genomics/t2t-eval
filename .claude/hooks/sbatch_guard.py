@@ -6,12 +6,15 @@ The sf-lane exception (CLAUDE.md, "Where work happens") lets Steven's Claude run
     sbatch slurm/submit.slurm --ticket tickets/sf/<id>.md
 
 Permission rules alone can't say "ask for every other sbatch": an ask rule beats a narrower allow
-rule, so `ask: Bash(sbatch *)` would also stop the sf form. So .claude/settings.json allows the sf
-form and denies the other lanes' ticket forms, and this hook asks a human before every other
-sbatch: other scripts, the sf form with anything after the ticket path, or inside a compound
-command. The sf form alone gets no answer here and falls through to the allow rule. So does a
-command that doesn't contain the word sbatch: the `if` filter also fires on commands it can't
-fully parse (loops, `$(...)`). Stdlib only.
+rule, so `ask: Bash(sbatch *)` would also stop the sf form. So the allow for the sf form lives in
+Steven's personal settings file outside the clone (README, Setup), not in .claude/settings.json:
+the exception is his, not the repo's. .claude/settings.json denies the other lanes' ticket forms,
+and this hook asks a human before every other sbatch: other scripts, the sf form with anything
+after the ticket path, or inside a compound command. The sf form alone gets no answer here and
+falls through to the permission rules: Steven's allow, else the usual prompt in default mode
+(bypassPermissions mode runs it unprompted, as it did when the repo allowed it). So does a command
+that doesn't contain the word sbatch: the `if` filter also fires on commands it can't fully parse
+(loops, `$(...)`). Stdlib only.
 """
 import json
 import re
@@ -24,7 +27,8 @@ ASK = {'hookSpecificOutput': {
     'permissionDecision': 'ask',
     'permissionDecisionReason': ('sbatch outside the sf-lane exception (CLAUDE.md, "Where work '
                                  'happens"): only `sbatch slurm/submit.slurm --ticket '
-                                 'tickets/sf/<id>.md`, run on its own, goes without asking'),
+                                 'tickets/sf/<id>.md`, run on its own, is left to the '
+                                 'permission rules'),
 }}
 
 
