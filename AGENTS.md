@@ -122,7 +122,7 @@ workers: `-ticket` (rule in `workflow/rules/<lane>/`, ticket at `tickets/<lane>/
 
 ## Containers
 Container-native: every rule has `container: config['images'][<key>]`, pinned by `@sha256:`
-digest in `config/images.yaml` (never `:latest`, never a tag alone). Dockerfiles in
+digest as a `docker://` URI in `config/images.yaml` (never `:latest`, never a tag alone). Dockerfiles in
 `docker/<tool>/<version>/` with the amd64 guard; built by the `images` workflow to
 `ghcr.io/canid-genomics/<tool>`; recorded in `IMAGES.md`. Image changes go through a PR.
 

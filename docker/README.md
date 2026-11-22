@@ -18,7 +18,8 @@ RUN [ "${TARGETARCH}" = "amd64" ] \
 Build and push with the `images` workflow (Actions → images → Run workflow, with tool and
 version). It pushes `ghcr.io/canid-genomics/<tool>:<version>` and `:<version>-<sha7>` and prints
 the digest. Then:
-1. pin it in `config/images.yaml` as `ghcr.io/canid-genomics/<tool>@sha256:…` (never a tag alone);
+1. pin it in `config/images.yaml` as `docker://ghcr.io/canid-genomics/<tool>@sha256:…` (never a tag alone;
+   the `docker://` scheme is required, or Snakemake treats it as a local path);
 2. add a row to `IMAGES.md` with the `--version` output.
 
 Image changes go through a PR reviewed by the other person. On agate, Snakemake pulls into
