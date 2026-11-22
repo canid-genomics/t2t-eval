@@ -20,8 +20,11 @@ set -euo pipefail
 
 cd "${SLURM_SUBMIT_DIR:-$PWD}"
 
-# The ticket pins what runs: `commit:` (must equal HEAD), `run_id:` and `targets:` lines.
-# Agents write tickets; only a human submits them. Remaining args pass through to snakemake.
+# The ticket pins what runs: `commit:` (must equal HEAD), `run_id:` and `targets:` lines, and
+# optionally `lane:` (jc, sf or shared), which points the run at that lane's scratch instead of the
+# workdir in config/config.yaml. Agents write tickets; only a human submits them. Remaining args
+# pass through to snakemake.
+SCRATCH_BASE=/scratch.global/friedlab_T2TEVAL
 TICKET=''
 if [[ "${1:-}" == "--ticket" ]]; then
     TICKET=${2:?--ticket needs a path, e.g. tickets/M01.md}
@@ -29,9 +32,15 @@ if [[ "${1:-}" == "--ticket" ]]; then
 fi
 [[ -n "$TICKET" ]] || { echo "usage: submit.slurm --ticket tickets/<id>.md [snakemake args]" >&2; exit 1; }
 [[ -f "$TICKET" ]] || { echo "no ticket at $TICKET" >&2; exit 1; }
-field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1; }
-T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets)
+field() { sed -n "s/^$1:[[:space:]]*//p" "$TICKET" | head -1 | sed 's/[[:space:]]*$//'; }
+T_COMMIT=$(field commit); T_RUN_ID=$(field run_id); T_TARGETS=$(field targets); T_LANE=$(field lane)
 : "${T_COMMIT:?ticket has no commit: line}" "${T_RUN_ID:?ticket has no run_id: line}" "${T_TARGETS:?ticket has no targets: line}"
+# Everything goes in ONE --config: a second --config flag replaces the first instead of adding to it.
+CONFIG=(run_id="$T_RUN_ID")
+if [[ -n "$T_LANE" ]]; then
+    [[ "$T_LANE" =~ ^(jc|sf|shared)$ ]] || { echo "$TICKET: lane: must be jc, sf or shared, not '$T_LANE'" >&2; exit 1; }
+    CONFIG+=(workdir="$SCRATCH_BASE/$T_LANE")
+fi
 HEAD_SHA=$(git rev-parse HEAD)
 if [[ "$HEAD_SHA" != "$T_COMMIT"* ]]; then
     echo "HEAD is $HEAD_SHA but $TICKET pins $T_COMMIT: git pull / checkout that commit first" >&2
@@ -77,7 +86,7 @@ pixi run snakemake \
     --software-deployment-method apptainer \
     --apptainer-prefix /projects/standard/fried255/shared/containers \
     --configfile config/config.yaml \
-    --config run_id="$T_RUN_ID" \
+    --config "${CONFIG[@]}" \
     --profile profiles/agate \
     --rerun-triggers mtime \
     --rerun-incomplete \

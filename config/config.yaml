@@ -9,8 +9,9 @@ lanes: ['jc', 'sf', 'shared']
 tier2_bucket: 's3://t2t'
 offload: true
 
-# Per-lane scratch (reaped; Tier 2 is the durable copy). Each person points this at their own lane.
-workdir: '/scratch.global/friedlab_T2TEVAL/jc'   # TODO: sf sets '/scratch.global/friedlab_T2TEVAL/sf'
+# Per-lane scratch (reaped; Tier 2 is the durable copy). This is the default; a ticket's `lane:`
+# line makes slurm/submit.slurm pass workdir=/scratch.global/friedlab_T2TEVAL/<lane> instead.
+workdir: '/scratch.global/friedlab_T2TEVAL/jc'
 
 # Sample sheet: one row per assembly under evaluation. Committed (public data only).
 samples: 'config/samples.tsv'
