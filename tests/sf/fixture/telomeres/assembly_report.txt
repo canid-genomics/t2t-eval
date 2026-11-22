@@ -1,0 +1,20 @@
+# Assembly name:  TEST_fixture_pri
+# Organism name:  synthetic test fixture (not a real assembly)
+# Assembly type:  haploid (principal pseudohaplotype of diploid)
+# GenBank assembly accession: GCA_000000001.1
+#
+## Assembly-Unit names:
+## Primary Assembly
+## non-nuclear
+#
+# Ordered by chromosome/plasmid; the chromosomes/plasmids are followed by
+# unlocalized scaffolds.
+# Unplaced scaffolds are listed at the end.
+# RefSeq is equal or derived from GenBank object.
+#
+# Sequence-Name	Sequence-Role	Assigned-Molecule	Assigned-Molecule-Location/Type	GenBank-Accn	Relationship	RefSeq-Accn	Assembly-Unit	Sequence-Length	UCSC-style-name
+chr1	assembled-molecule	1	Chromosome	TEST0001.1	<>	na	Primary Assembly	60000	na
+chr2	assembled-molecule	2	Chromosome	TEST0002.1	<>	na	Primary Assembly	250000	na
+chrX	assembled-molecule	X	Chromosome	TEST0003.1	<>	na	Primary Assembly	3000	na
+chrM	assembled-molecule	MT	Mitochondrion	TEST0004.1	<>	na	non-nuclear	500	na
+scaf1	unplaced-scaffold	na	na	TEST0005.1	<>	na	Primary Assembly	800	na

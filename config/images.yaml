@@ -2,4 +2,6 @@
 #   container: config['images'][<key>]
 # Images are built by .github/workflows/images.yml from docker/<tool>/<version>/Dockerfile and
 # pushed to ghcr.io/canid-genomics/<tool>. Record each one in IMAGES.md as well.
-images: {}
+images:
+  # docker/python/3.11 (Python 3.11.18), images workflow run 45058770486 on branch sf/M02, 2026-11-22.
+  python: 'ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57'
