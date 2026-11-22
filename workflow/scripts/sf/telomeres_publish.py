@@ -42,12 +42,12 @@ def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
     lines = [
         f'M02 telomere-motif scan, {subject}, run {run_id}',
         '',
-        'Tool: workflow/scripts/sf_telomere_scan.py at the commit in run_info.json',
+        'Tool: workflow/scripts/sf/telomere_scan.py at the commit in run_info.json',
         f"  sha256 {scan_script['sha256']}",
         f'  Python {platform.python_version()} (container image in run_info.json), stdlib only',
         '',
         'Inputs: NCBI GenBank FASTA and assembly report for each haplotype, downloaded by',
-        'workflow/scripts/sf_ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
+        'workflow/scripts/sf/ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
     ]
     lines += [f"  {a['haplotype']}: {a['assembly']} {a['accession']}" for a in assemblies]
     lines += [

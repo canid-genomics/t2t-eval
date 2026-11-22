@@ -2,7 +2,7 @@
 # NCBI download and md5 check on sf scratch, one scan per assembly, then one Tier 2 run folder:
 #   t2t/<subject>/sf/<run-id>/{telomeres,chromosomes,inputs}.tsv, method.txt, run_info.json,
 #                             sha256sums.txt, _MANIFEST.txt
-# Ticket target: sf_telomeres_all. Method and parameters: workflow/scripts/sf_telomere_scan.py.
+# Ticket target: sf_telomeres_all. Method and parameters: workflow/scripts/sf/telomere_scan.py.
 import hashlib
 import json
 import re
@@ -28,7 +28,7 @@ SF_TELOMERE_SCAN = {
 
 SF_SAMPLE    = samples_df.set_index('assembly').to_dict('index')
 SF_SUBJECTS  = sorted(set(SUBJECT.values()))
-SF_SCAN_PY   = REPO_ROOT / 'workflow/scripts/sf_telomere_scan.py'
+SF_SCAN_PY   = REPO_ROOT / 'workflow/scripts/sf/telomere_scan.py'
 
 # SLURM does not create --output/--error directories; make this lane's per-rule ones up front.
 # The cwd here is the workdir (scratch on agate), where slurm_log_path() points.
@@ -102,7 +102,7 @@ rule sf_ncbi_fetch:
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_ncbi_fetch', wildcards_pattern='{assembly}')
     container: config['images']['python']
-    script: '../scripts/sf_ncbi_fetch.py'
+    script: '../../scripts/sf/ncbi_fetch.py'
 
 
 rule sf_telomere_scan:
@@ -121,7 +121,7 @@ rule sf_telomere_scan:
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_telomere_scan', wildcards_pattern='{assembly}')
     container: config['images']['python']
-    script: '../scripts/sf_telomere_scan.py'
+    script: '../../scripts/sf/telomere_scan.py'
 
 
 rule sf_telomeres_publish:
@@ -143,10 +143,10 @@ rule sf_telomeres_publish:
         spec_id     = SF_M02_SPEC,
         scan        = SF_TELOMERE_SCAN,
         assemblies  = lambda wc: [{'assembly': a, **SF_SAMPLE[a]} for a in sf_assemblies(wc.subject)],
-        scan_script = {'path': 'workflow/scripts/sf_telomere_scan.py',
+        scan_script = {'path': 'workflow/scripts/sf/telomere_scan.py',
                        'sha256': hashlib.sha256(SF_SCAN_PY.read_bytes()).hexdigest()},
         provenance  = lambda wc: sf_provenance()
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern='{subject}')
     container: config['images']['python']
-    script: '../scripts/sf_telomeres_publish.py'
+    script: '../../scripts/sf/telomeres_publish.py'

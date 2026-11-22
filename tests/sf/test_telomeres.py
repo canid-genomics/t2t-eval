@@ -1,6 +1,6 @@
 """Tests for the M02 (sf) telomere-scan scripts, on synthetic sequence only. Stdlib unittest:
 
-    pixi run python -m unittest discover -s tests -p 'test_sf_*.py' -v
+    pixi run python -m unittest discover -s tests/sf -p 'test_*.py' -v
 """
 import gzip
 import hashlib
@@ -12,20 +12,20 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-REPO = Path(__file__).resolve().parent.parent
-FIXTURE = REPO / 'tests/fixture/sf_telomeres'
+REPO = Path(__file__).resolve().parents[2]
+FIXTURE = REPO / 'tests/sf/fixture/telomeres'
 
 
 def load(name):
-    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/{name}.py')
+    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/sf/{name}.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
-scan = load('sf_telomere_scan')
-fetch = load('sf_ncbi_fetch')
-publish = load('sf_telomeres_publish')
+scan = load('telomere_scan')
+fetch = load('ncbi_fetch')
+publish = load('telomeres_publish')
 
 PARAMS = dict(scan.DEFAULT_PARAMS)
 FWD, REV = 'TTAGGG', 'CCCTAA'
@@ -41,7 +41,7 @@ def place(seq, pos, insert):
 
 
 def synthetic_chromosomes():
-    """Sequences matching the lengths in tests/fixture/sf_telomeres/assembly_report.txt."""
+    """Sequences matching the lengths in tests/sf/fixture/telomeres/assembly_report.txt."""
     rng = random.Random(2)
     # chr1: CCCTAA x500 at the start with one variant unit; an inward TTAGGG x12 at 5 kb; a
     # soft-masked TTAGGG x300 that stops 7 bp short of the end.

@@ -1,4 +1,4 @@
-# Python 3.11 for the workflow's stdlib-only `script:` rules (first used by M02, sf_telomeres.smk).
+# Python 3.11 for the workflow's stdlib-only `script:` rules (first used by M02, sf/telomeres.smk).
 # 3.11 matches the linux-64 pixi env that runs Snakemake on agate: for a Python `script:` Snakemake
 # binds its own package into the container and the container's `python` imports it.
 #

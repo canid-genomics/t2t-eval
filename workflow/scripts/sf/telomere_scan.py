@@ -1,7 +1,7 @@
 """Telomere-motif scan at both ends of every chromosome of one assembly (M02, sf lane).
 
 Run by the `sf_telomere_scan` rule (`script:`); stdlib only, Python >= 3.11. The functions are
-importable so tests/test_sf_telomeres.py can exercise them on synthetic sequence.
+importable so tests/sf/test_telomeres.py can exercise them on synthetic sequence.
 
 Which sequences: rows of the NCBI assembly report with Sequence-Role `assembled-molecule` and
 Assigned-Molecule-Location/Type `Chromosome` (so chrM, unlocalized and unplaced scaffolds are
