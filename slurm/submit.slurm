@@ -23,7 +23,10 @@ cd "${SLURM_SUBMIT_DIR:-$PWD}"
 # The ticket pins what runs: `commit:`, `run_id:` and `targets:` lines. Its folder,
 # tickets/<lane>/, is its lane (jc, sf or shared) and points the run at that lane's scratch; an
 # optional `lane:` line must agree. `commit:` is the commit holding the rule; the ticket itself is
-# committed after it, so HEAD may be later, but only tickets/ may differ between the two. Agents
+# committed after it, so HEAD may be later. Between the two only these may differ: tickets/, the
+# OTHER personal lane's folders (jc ↔ sf: reports/, workflow/rules/, workflow/scripts/, tests/),
+# and the append-only logs (PROVENANCE, HANDOFFS, DECISIONS, LESSONS). None of those change what
+# this ticket's run executes. Shared files and workflow/scripts/shared/ still count. Agents
 # write tickets; humans submit them, apart from the sf-lane exception in CLAUDE.md ("Where work
 # happens"). Remaining args pass through to snakemake, except --delete-* (below).
 SCRATCH_BASE=/scratch.global/friedlab_T2TEVAL
@@ -58,9 +61,19 @@ T_COMMIT_SHA=$(git rev-parse --verify --quiet "${T_COMMIT}^{commit}") \
     || { echo "$TICKET pins $T_COMMIT, which is not a commit in this clone: git pull first" >&2; exit 1; }
 git merge-base --is-ancestor "$T_COMMIT_SHA" HEAD \
     || { echo "$TICKET pins $T_COMMIT, which is not HEAD or an ancestor of it: git pull / checkout first" >&2; exit 1; }
-if ! git diff --quiet "$T_COMMIT_SHA" HEAD -- . ':!tickets'; then
-    echo "HEAD differs from $TICKET's commit $T_COMMIT outside tickets/; run that code or re-ticket:" >&2
-    git diff --stat "$T_COMMIT_SHA" HEAD -- . ':!tickets' >&2
+# What may differ between the ticket's commit and HEAD without changing this run (see above).
+IGNORE=(':!tickets' ':!PROVENANCE.md' ':!HANDOFFS.md' ':!DECISIONS.md' ':!LESSONS.md')
+case "$LANE" in
+    sf) OTHER=jc ;;
+    jc) OTHER=sf ;;
+    *)  OTHER='' ;;   # a shared-lane run may use either lane's code, so nothing more is ignored
+esac
+if [[ -n "$OTHER" ]]; then
+    IGNORE+=(":!reports/$OTHER" ":!workflow/rules/$OTHER" ":!workflow/scripts/$OTHER" ":!tests/$OTHER")
+fi
+if ! git diff --quiet "$T_COMMIT_SHA" HEAD -- . "${IGNORE[@]}"; then
+    echo "HEAD differs from $TICKET's commit $T_COMMIT in files this run may use; run that code or re-ticket:" >&2
+    git diff --stat "$T_COMMIT_SHA" HEAD -- . "${IGNORE[@]}" >&2
     exit 1
 fi
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] || { echo "tracked files are modified; commit or stash first" >&2; exit 1; }
