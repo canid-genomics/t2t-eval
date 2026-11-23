@@ -62,6 +62,10 @@ separate private repo. No personal paths, emails or credentials in any committed
   `AGENTS.md`/`CLAUDE.md`, `.claude/settings.json` and `.claude/hooks/`, `SPEC.tsv`.
 - Rules write only `tier2(path, '<own lane>', subject)` outputs. Cross-lane inputs are read with
   the other lane's name, after its `[handoff]`.
+- Every top-level name in a lane's `.smk` (rule, function, variable) carries its lane prefix
+  (`jc_`/`JC_`, `sf_`/`SF_`), and lane rule files never modify `config`. The Snakefile parses both
+  lanes' rules in every run, but the ticket check ignores the other lane's folders, so a clash
+  there would change a run unseen.
 
 ## Where work happens
 - **agate:** all processing of sequence data, in containers, from a ticket:
