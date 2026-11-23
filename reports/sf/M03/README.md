@@ -5,7 +5,7 @@ chromosome ends (from M02) and gaps (from M01), with its source table. The code 
 were built ahead of the M01 handoff on synthetic fixtures (`sf/M03-prep`, PR #9); `sf/M03` ran it
 on 2026-11-23 on `reports/sf/M02/` and `reports/jc/M01/` as merged to main (`24af769`). Outputs:
 `completeness.tsv`, `completeness.method.txt`, `completeness.pdf`, `completeness.png`, and the
-draft `SUMMARY.md` (awaiting Steven's sign-off).
+`SUMMARY.md` (approved by Steven, 2026-11-23).
 
 - Script: `workflow/scripts/sf/completeness.py` (stdlib + matplotlib; method in its docstring)
 - Tests: `tests/sf/test_completeness.py`, fixtures in `tests/sf/fixture/completeness/`
