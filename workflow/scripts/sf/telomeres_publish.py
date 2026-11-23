@@ -79,7 +79,7 @@ def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
         f'  Python {platform.python_version()} (container image in run_info.json), stdlib only',
         '',
         'Inputs: NCBI GenBank FASTA and assembly report for each haplotype, downloaded by',
-        'workflow/scripts/sf/ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
+        'workflow/scripts/shared/ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
     ]
     lines += [f"  {a['haplotype']}: {a['assembly']} {a['accession']}" for a in assemblies]
     lines += [
