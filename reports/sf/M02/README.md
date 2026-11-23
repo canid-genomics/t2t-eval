@@ -21,6 +21,8 @@ the `sf/M02-report` task that committed them had no Tier 2 access.
 `sha256sums.txt` and `_MANIFEST.txt`, which the run's own listing leaves out; those two are
 hashed as copied.
 
-Status: diagnostic-only (PROVENANCE.md). Nothing here is a present/absent, T2T or comparison
-call. `SUMMARY.md` will be written by `sf/M02-summary`, and it is not a claim until a human
-approves it.
+Status: the counts in `SUMMARY.md` are verdict-safe as stated (approved by Steven 2026-11-22;
+PROVENANCE.md). Nothing here is a present/absent, telomere, T2T or comparison call.
+
+`_MANIFEST.txt` says `objects: 6`: it counts the run folder's other files, not itself, so the
+run folder holds 7 files in all (6 + the manifest).

@@ -75,9 +75,11 @@ def sf_provenance():
 
 
 def sf_m02_run_id():
-    """This run's id; refuses another metric's run-id so M02 never lands in a wrong-named folder."""
+    """This run's id; refuses another metric's run-id so M02 never lands in a wrong-named folder.
+    The no-ticket RUN_ID_UNSET passes, so the DAG still builds (`snakemake --unlock` builds it);
+    the Snakefile's onstart and the publish script refuse it before anything is written."""
     rid = run_id()
-    if rid.split('.')[0] not in (SF_M02_METRIC, 'dev'):
+    if rid != RUN_ID_UNSET and rid.split('.')[0] not in (SF_M02_METRIC, 'dev'):
         raise ValueError(f'run_id {rid!r} is not a {SF_M02_METRIC}.<date>.<sha7> run-id (M02)')
     return rid
 
@@ -169,7 +171,8 @@ rule sf_telomeres_publish:
                        'sha256': hashlib.sha256(SF_SCAN_PY.read_bytes()).hexdigest()},
         provenance  = lambda wc: sf_provenance(),
         describes   = sf_spec_describes(SF_M02_SPEC),
-        dest        = lambda wc: sf_m02_dest(wc.subject)
+        dest        = lambda wc: sf_m02_dest(wc.subject),
+        submit_job  = str(config.get('submit_job') or '')
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_telomeres_publish', wildcards_pattern=wc.subject)
     container: config['images']['python']
