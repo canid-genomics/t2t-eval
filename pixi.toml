@@ -12,3 +12,11 @@ snakemake = "9.1.1.*"
 snakemake-executor-plugin-slurm = "1.8.0.*"
 snakemake-storage-plugin-s3 = "==0.3.6"
 pandas = ">=2.3.3,<3"
+
+# Figures (M03 and later): a separate environment so the Snakemake env above is unchanged.
+#   pixi run -e fig python workflow/scripts/<lane>/<figure>.py ...
+[feature.fig.dependencies]
+matplotlib-base = ">=3.9,<4"
+
+[environments]
+fig = ["fig"]

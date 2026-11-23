@@ -80,9 +80,11 @@ separate private repo. No personal paths, emails or credentials in any committed
   - After each job, a short note to Steven (in his session, or `wg log sf/<id>-run`): job id,
     ticket, final state, elapsed time, core-hours from `sacct`, and the test 2 total so far.
   - Deletes on scratch or Tier 2 stay human-only. The jc lane stays human-only for test 2.
-  - Enforced in `.claude/settings.json`: it allows that one form, denies the jc and shared ticket
-    forms and `sbatch` with options before the script, and asks for every `scancel`.
-    `.claude/hooks/sbatch_guard.py` asks before any other `sbatch`, and `slurm/submit.slurm`
+  - The allow for that one form lives in Steven's personal settings file outside the clone
+    (README, Setup), not in the repo: the exception is his, not every Claude's here.
+    `.claude/settings.json` denies the jc and shared ticket forms and `sbatch` with options before
+    the script, and asks for every `scancel`. `.claude/hooks/sbatch_guard.py` asks before any
+    other `sbatch` (the sf form alone it leaves to the permission rules), and `slurm/submit.slurm`
     refuses uncommitted tickets and `--delete-*` arguments.
 - **Local:** figures, tables, summaries, writing, and `pixi run snakemake -n --configfile
   config/config.local.yaml` dry runs. No sequence data on laptops.
@@ -101,8 +103,10 @@ workers: `-ticket` (rule in `workflow/rules/<lane>/`, ticket at `tickets/<lane>/
 - **wg workers commit and land on the local `main` without asking.** This is wg's intended model
   and a deliberate override, for wg workers in this repo only, of any global "don't auto-commit"
   rule. It stays reversible because nothing leaves the machine without a human.
-- **Interactive Claude sessions still ask before every commit** (`.claude/settings.local.json`,
-  gitignored, sets `ask`; workers' fresh worktrees don't have it).
+- **Interactive Claude sessions still ask before every commit**: each person's settings file
+  outside the clone (`claude --settings ~/.config/t2t-eval/claude-interactive.json`, README Setup)
+  sets `ask`. Not `.claude/settings.local.json` in the clone, nor the global
+  `~/.claude/settings.json`: both reach the wg workers, whose worktrees are inside the clone.
 - **Only humans push**, after `scripts/review-before-push.sh`. Nobody force-pushes.
 - Every worker commit message names its wg task id (e.g. `jc/M01-ticket: …`).
 
@@ -130,6 +134,9 @@ digest as a `docker://` URI in `config/images.yaml` (never `:latest`, never a ta
 - Task ids `<lane>/<id>-<step>`. Commit inputs before dispatch (workers see committed files only).
 - Every task has a `## Validation` section. Claims need human sign-off on the `-summary` task.
 - Workers: Opus; wg bookkeeping roles: Sonnet (`worksgood.toml`). Revisit after test 2.
+- Workers never `pixi install` or `pixi run` inside a worktree: a `.pixi/` there (~17k files)
+  deadlocks wg's `git check-ignore` scan. Use the main checkout's env:
+  `eval "$(pixi shell-hook --manifest-path <clone>/pixi.toml)"`.
 
 ## Collaboration
 - Mailbox: the shared WG mailbox (`$MAILBOX`), sealed messages between the two sides' Claudes.
