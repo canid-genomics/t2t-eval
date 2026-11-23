@@ -137,11 +137,12 @@ class Table(unittest.TestCase):
         self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 0}))
         self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 1_000}, max_dist_bp=1_000))
         self.assertFalse(comp.has_array({'copies': 4_000, 'dist_bp': 1_001}, max_dist_bp=1_000))
-        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 3_356}))       # default 100 kb
-        self.assertFalse(comp.has_array({'copies': 10, 'dist_bp': 100_001}))
+        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 3_356}))       # default 10 kb
+        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 10_000}))
+        self.assertFalse(comp.has_array({'copies': 10, 'dist_bp': 10_001}))
 
-    def test_default_matches_the_approved_m02_reading(self):
-        self.assertEqual(comp.DEFAULT_MAX_DIST_BP, 100_000)
+    def test_default_is_10kb(self):
+        self.assertEqual(comp.DEFAULT_MAX_DIST_BP, 10_000)
 
     def test_written_table(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -315,13 +316,14 @@ class Figure(unittest.TestCase):
         self.assertEqual(filled.count(True), 6)   # start/end 'yes' in pri: 2 + 2 + 1 + 0 + 1
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class Default(unittest.TestCase):
-    def test_default_threshold_counts_arrays_anywhere_in_the_terminal_100kb(self):
+    def test_default_threshold_counts_arrays_within_10kb_of_the_end(self):
         rows = by_key(comp.build_table(comp.read_telomeres(TELOMERES), comp.read_gfastats(GFASTATS),
                                        comp.read_gaps(GAPS)))
-        self.assertEqual(rows[('pri', 'chrX')]['start_array'], 'yes')   # 1,001 bp in: counts at 100 kb
-        self.assertEqual(rows[('alt', 'chr10')]['end_array'], 'yes')    # 5,000 bp in: counts at 100 kb
+        self.assertEqual(rows[('pri', 'chrX')]['start_array'], 'yes')   # 1,001 bp in: counts at 10 kb
+        self.assertEqual(rows[('alt', 'chr10')]['end_array'], 'yes')    # 5,000 bp in: counts at 10 kb
+        self.assertFalse(comp.has_array({'copies': 4_000, 'dist_bp': 80_000}))  # interstitial: never terminal
+
+
+if __name__ == '__main__':
+    unittest.main()

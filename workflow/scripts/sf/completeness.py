@@ -45,9 +45,11 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 
 DEFAULT_MIN_COPIES = 10
-# 100 kb = M02's whole terminal search window, so any qualifying array counts: the same reading as
-# the approved M02 summary (147/156 ends). Steven chose this over 1 kb on 2026-11-23 (PR #9).
-DEFAULT_MAX_DIST_BP = 100_000
+# 10 kb, one of M02's own windows: an array counts only if it starts within 10 kb of the end, so an
+# interstitial array further in never counts as terminal. On ROS_Cfam_2.0 any cutoff >= 3,356 bp
+# gives the approved M02 reading (147/156 ends). Jonah proposed it, Steven agreed, 2026-11-23
+# (replacing 100 kb, M02's whole search window, PR #9).
+DEFAULT_MAX_DIST_BP = 10_000
 
 EXPECTED_MOTIF = {'start': 'CCCTAA', 'end': 'TTAGGG'}
 HAPLOTYPE_ORDER = ['pri', 'alt']

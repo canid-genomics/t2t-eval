@@ -50,11 +50,13 @@ stderr and writes:
 | `completeness.method.txt` | inputs with sha256, thresholds, the status rules, Python and matplotlib versions |
 | `completeness.pdf`, `completeness.png` | the figure (PNG at 300 dpi; the PDF has no creation date, so a re-run gives the same bytes) |
 
-The thresholds default to the reading in the approved M02 summary: an end has an expected-motif
-array if it has >= 10 copies anywhere in the terminal 100 kb that M02 searches (`--min-copies 10`,
-`--max-dist-bp 100000`), which gives 147 of 156 ends. Steven chose this on 2026-11-23 (PR #9) over
-a stricter 1 kb, which would drop five ends whose arrays sit 1.2–3.4 kb in (pri chr8 start; alt
-chr16 end, chr24 start, chr29 end, chr32 start). The distance of every array from the end is in
+The thresholds: an end has an expected-motif array if M02's array there has >= 10 copies and
+starts within 10 kb of the end (`--min-copies 10`, `--max-dist-bp 10000`), which gives 147 of 156
+ends, the same as the approved M02 summary. 142 of the 147 arrays lie within 1 kb of the end, and
+five lie 1.2–3.4 kb in (pri chr8 start; alt chr16 end, chr24 start, chr29 end, chr32 start), so
+any cutoff of 3.4 kb or more gives the same count on this assembly. Jonah proposed 10 kb and Steven
+agreed on 2026-11-23, replacing 100 kb (M02's whole search window, PR #9): a cutoff that wide
+would count an interstitial array 80 kb in as terminal on another assembly. The distance of every array from the end is in
 `completeness.tsv`. Change the thresholds only on both humans' say-so; the values used go into
 `completeness.method.txt` and the legend.
 
