@@ -48,9 +48,13 @@ stderr and writes:
 | `completeness.method.txt` | inputs with sha256, thresholds, the status rules, Python and matplotlib versions |
 | `completeness.pdf`, `completeness.png` | the figure (PNG at 300 dpi; the PDF has no creation date, so a re-run gives the same bytes) |
 
-The thresholds default to the ones M02's diagnostic was read with: an end has an expected-motif
-array if it has >= 10 copies within 1,000 bp of the end (`--min-copies`, `--max-dist-bp`). Change
-them only on a human's say-so; the values used go into `completeness.method.txt` and the legend.
+The thresholds default to the reading in the approved M02 summary: an end has an expected-motif
+array if it has >= 10 copies anywhere in the terminal 100 kb that M02 searches (`--min-copies 10`,
+`--max-dist-bp 100000`), which gives 147 of 156 ends. Steven chose this on 2026-11-23 (PR #9) over
+a stricter 1 kb, which would drop five ends whose arrays sit 1.2–3.4 kb in (pri chr8 start; alt
+chr16 end, chr24 start, chr29 end, chr32 start). The distance of every array from the end is in
+`completeness.tsv`. Change the thresholds only on both humans' say-so; the values used go into
+`completeness.method.txt` and the legend.
 
 The script fails loudly if any M02 chromosome has no M01 sequence row with the same assembly,
 seq_id, haplotype, accession and length, or if a gap runs past its sequence. If it fails, fix

@@ -45,7 +45,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 
 DEFAULT_MIN_COPIES = 10
-DEFAULT_MAX_DIST_BP = 1_000
+# 100 kb = M02's whole terminal search window, so any qualifying array counts: the same reading as
+# the approved M02 summary (147/156 ends). Steven chose this over 1 kb on 2026-11-23 (PR #9).
+DEFAULT_MAX_DIST_BP = 100_000
 
 EXPECTED_MOTIF = {'start': 'CCCTAA', 'end': 'TTAGGG'}
 HAPLOTYPE_ORDER = ['pri', 'alt']

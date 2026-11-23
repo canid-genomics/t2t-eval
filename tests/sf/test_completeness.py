@@ -46,7 +46,13 @@ EXPECTED = {
 }
 
 
+# The fixture's threshold edge cases were built at 1 kb (pri chrY end 1,000 bp, pri chrX start
+# 1,001 bp, alt chr10 end 5,000 bp), so fixture tests pin 1 kb; the real default is 100 kb.
+FIXTURE_MAX_DIST_BP = 1_000
+
+
 def fixture_rows(**kw):
+    kw.setdefault('max_dist_bp', FIXTURE_MAX_DIST_BP)
     return comp.build_table(comp.read_telomeres(TELOMERES), comp.read_gfastats(GFASTATS),
                             comp.read_gaps(GAPS), **kw)
 
@@ -112,7 +118,7 @@ class Table(unittest.TestCase):
         self.assertEqual(sum(r['n_gaps'] for r in rows), 5)   # 6 gaps in gaps.bed, 1 unplaced
 
     def test_threshold_edges(self):
-        rows = by_key(fixture_rows())
+        rows = by_key(fixture_rows())                    # the edge cases sit at 1 kb
         self.assertEqual(rows[('pri', 'chrY')]['end_array_dist_bp'], 1_000)     # <= 1,000: yes
         self.assertEqual(rows[('pri', 'chrY')]['end_array'], 'yes')
         self.assertEqual(rows[('pri', 'chrX')]['start_array_dist_bp'], 1_001)   # > 1,000: no
@@ -129,8 +135,13 @@ class Table(unittest.TestCase):
         self.assertFalse(comp.has_array({'copies': 0, 'dist_bp': None}))
         self.assertFalse(comp.has_array({'copies': 9, 'dist_bp': 0}))
         self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 0}))
-        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 1_000}))
-        self.assertFalse(comp.has_array({'copies': 4_000, 'dist_bp': 1_001}))
+        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 1_000}, max_dist_bp=1_000))
+        self.assertFalse(comp.has_array({'copies': 4_000, 'dist_bp': 1_001}, max_dist_bp=1_000))
+        self.assertTrue(comp.has_array({'copies': 10, 'dist_bp': 3_356}))       # default 100 kb
+        self.assertFalse(comp.has_array({'copies': 10, 'dist_bp': 100_001}))
+
+    def test_default_matches_the_approved_m02_reading(self):
+        self.assertEqual(comp.DEFAULT_MAX_DIST_BP, 100_000)
 
     def test_written_table(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -238,7 +249,8 @@ class Figure(unittest.TestCase):
     def test_cli_writes_all_four_outputs(self):
         with tempfile.TemporaryDirectory() as tmp, redirect_stderr(io.StringIO()) as err:
             self.assertEqual(comp.main(['--telomeres', str(TELOMERES), '--gfastats', str(GFASTATS),
-                                        '--gaps', str(GAPS), '--out-dir', tmp]), 0)
+                                        '--gaps', str(GAPS), '--out-dir', tmp,
+                                        '--max-dist-bp', str(FIXTURE_MAX_DIST_BP)]), 0)
             out = Path(tmp)
             for name in OUTPUTS:
                 self.assertGreater((out / name).stat().st_size, 0, name)
@@ -256,7 +268,8 @@ class Figure(unittest.TestCase):
                              (Path(b) / 'completeness.pdf').read_bytes())
 
     def figure(self, **kw):
-        return comp.draw_figure(fixture_rows(), comp.read_gaps(GAPS), **kw)
+        kw.setdefault('max_dist_bp', FIXTURE_MAX_DIST_BP)
+        return comp.draw_figure(fixture_rows(max_dist_bp=kw['max_dist_bp']), comp.read_gaps(GAPS), **kw)
 
     def test_no_forbidden_words_in_the_figure_text(self):
         texts = comp.figure_texts(self.figure())
@@ -304,3 +317,11 @@ class Figure(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class Default(unittest.TestCase):
+    def test_default_threshold_counts_arrays_anywhere_in_the_terminal_100kb(self):
+        rows = by_key(comp.build_table(comp.read_telomeres(TELOMERES), comp.read_gfastats(GFASTATS),
+                                       comp.read_gaps(GAPS)))
+        self.assertEqual(rows[('pri', 'chrX')]['start_array'], 'yes')   # 1,001 bp in: counts at 100 kb
+        self.assertEqual(rows[('alt', 'chr10')]['end_array'], 'yes')    # 5,000 bp in: counts at 100 kb
