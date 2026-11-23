@@ -1,0 +1,99 @@
+assembly	haplotype	accession	scope	seq_id	metric	value
+TEST_pri	pri	GCA_000000001.1	assembly	NA	# scaffolds	6
+TEST_pri	pri	GCA_000000001.1	assembly	NA	Total scaffold length	11650000
+TEST_pri	pri	GCA_000000001.1	assembly	NA	# gaps in scaffolds	5
+TEST_pri	pri	GCA_000000001.1	assembly	NA	Total gap length in scaffolds	10850
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	Comment	synthetic chr1
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	Total path length	3000000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	Total segment length	3000000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	Contig N	1
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	A	870000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	C	630000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	G	630000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	T	870000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP001.1	Is circular	N
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	Comment	synthetic chr2
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	Total path length	2500000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	Total segment length	2499400
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	Contig N	3
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	A	724826
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	C	524874
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	G	524874
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	T	724826
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP002.1	Is circular	N
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	Comment	synthetic chr10
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	Total path length	1800000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	Total segment length	1799800
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	Contig N	2
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	A	521942
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	C	377958
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	G	377958
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	T	521942
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP010.1	Is circular	N
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	Comment	synthetic chrX
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	Total path length	3500000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	Total segment length	3490000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	Contig N	2
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	A	1012100
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	C	732900
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	G	732900
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	T	1012100
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0X0.1	Is circular	N
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	Comment	synthetic chrY
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	Total path length	800000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	Total segment length	800000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	Contig N	1
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	A	232000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	C	168000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	G	168000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	T	232000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP0Y0.1	Is circular	N
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	Comment	synthetic unplaced scaffold
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	Total path length	50000
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	Total segment length	49950
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	Contig N	2
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	A	14485
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	C	10490
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	G	10490
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	T	14485
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	# soft-masked bases	0
+TEST_pri	pri	GCA_000000001.1	sequence	TESTP999.1	Is circular	N
+TEST_alt	alt	GCA_000000002.1	assembly	NA	# scaffolds	3
+TEST_alt	alt	GCA_000000002.1	assembly	NA	Total scaffold length	7300000
+TEST_alt	alt	GCA_000000002.1	assembly	NA	# gaps in scaffolds	1
+TEST_alt	alt	GCA_000000002.1	assembly	NA	Total gap length in scaffolds	100
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	Comment	synthetic chr1
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	Total path length	2950000
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	Total segment length	2950000
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	Contig N	1
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	A	855500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	C	619500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	G	619500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	T	855500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	# soft-masked bases	0
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA001.1	Is circular	N
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	Comment	synthetic chr2
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	Total path length	2600000
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	Total segment length	2599900
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	Contig N	2
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	A	753971
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	C	545979
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	G	545979
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	T	753971
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	# soft-masked bases	0
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA002.1	Is circular	N
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	Comment	synthetic chr10
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	Total path length	1750000
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	Total segment length	1750000
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	Contig N	1
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	A	507500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	C	367500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	G	367500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	T	507500
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	# soft-masked bases	0
+TEST_alt	alt	GCA_000000002.1	sequence	TESTA010.1	Is circular	N
