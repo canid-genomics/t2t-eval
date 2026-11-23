@@ -71,8 +71,8 @@ separate private repo. No personal paths, emails or credentials in any committed
 - **agate:** all processing of sequence data, in containers, from a ticket:
   `git pull && sbatch slurm/submit.slurm --ticket tickets/<lane>/<id>.md` (dry run: `bash … -n`).
   The ticket's folder sets the lane, and so the run's scratch.
-  **Agents never `sbatch` or `scancel`, except under the sf-lane exception below.** Humans submit
-  everything else, including every jc and shared ticket.
+  **Agents never `sbatch` or `scancel`, except under the lane exceptions below.** Humans submit
+  everything else, including every shared ticket.
 - **sf-lane exception** (test 2). Steven's Claude may `sbatch` and `scancel` sf-lane tickets
   (`tickets/sf/*.md`). Steven decided this on 2026-11-22 (his lane, his fried255 account), and
   Jonah noted it in WG msg 18. It is part of protocol rev 6, which is assessed at the end of test 2.
@@ -83,13 +83,21 @@ separate private repo. No personal paths, emails or credentials in any committed
     Anything past a cap is a `[compute-request]`, and a human submits it.
   - After each job, a short note to Steven (in his session, or `wg log sf/<id>-run`): job id,
     ticket, final state, elapsed time, core-hours from `sacct`, and the test 2 total so far.
-  - Deletes on scratch or Tier 2 stay human-only. The jc lane stays human-only for test 2.
+  - Deletes on scratch or Tier 2 stay human-only.
   - The allow for that one form lives in Steven's personal settings file outside the clone
     (README, Setup), not in the repo: the exception is his, not every Claude's here.
     `.claude/settings.json` denies the jc and shared ticket forms and `sbatch` with options before
     the script, and asks for every `scancel`. `.claude/hooks/sbatch_guard.py` asks before any
     other `sbatch` (the sf form alone it leaves to the permission rules), and `slurm/submit.slurm`
     refuses uncommitted tickets and `--delete-*` arguments.
+- **jc-lane exception** (test 2). Jonah's interactive Claude may `sbatch` and `scancel` jc-lane
+  tickets (`tickets/jc/*.md`), under the same rules and caps as the sf-lane exception, with
+  "Steven" read as "Jonah" (one exact command; `scancel` asks Jonah first; ≤2 days per job,
+  ≤500 GB scratch, ≤2,000 core-hours for the jc lane in test 2; a note to Jonah after each job;
+  no deletes). Jonah decided this on 2026-11-23. It is part of protocol rev 6.
+  - **Interactive Claude only.** It submits from Jonah's session over `ssh agate`, not from inside
+    the clone. jc **wg workers never submit**: `.claude/settings.json` keeps denying the jc ticket
+    form, and that file binds every session in the clone, workers included.
 - **Local:** figures, tables, summaries, writing, and `pixi run snakemake -n --configfile
   config/config.local.yaml` dry runs. No sequence data on laptops.
 - Code moves by git only: each person has their own clone on agate. No rsync.
