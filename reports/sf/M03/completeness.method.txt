@@ -1,6 +1,6 @@
 M03 per-chromosome table and figure: expected-motif arrays at the ends, and gaps
 
-Tool: workflow/scripts/sf/completeness.py, sha256 96e946622a6a9ef1104c0da6d9766b2e7836f7d1c0b09c50e666088052acbe0a
+Tool: workflow/scripts/sf/completeness.py, sha256 0ccb872d66f7f8431fa700a19626e9d59f486abc16b3620eb534e698437e0492
   Python 3.12.16, matplotlib 3.11.2
 
 Inputs (sha256):
@@ -18,8 +18,8 @@ reports it (the qualifying run nearest that end; method in M02's method.txt), as
 array_copies and array_dist_bp (0 = the array reaches the terminal base, NA = no
 qualifying array), and its exact count in the terminal 10 kb (count_10kb).
 
-Thresholds: min_copies = 10, max_dist_bp = 100,000
-  start_array / end_array = yes if array_copies >= 10 and array_dist_bp <= 100,000; NA is no.
+Thresholds: min_copies = 10, max_dist_bp = 10,000
+  start_array / end_array = yes if array_copies >= 10 and array_dist_bp <= 10,000; NA is no.
 Gaps: n_gaps and gap_bp count gaps.bed rows (runs of N/n) on that sequence.
 Status, a fixed rule on the columns above:
   array_both_ends_no_gaps    start_array and end_array yes, n_gaps = 0
