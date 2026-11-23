@@ -157,13 +157,17 @@ rule jc_assembly_stats_publish:
         sequences = lambda wc: [f'jc/{jc_m01_run_id()}/{a}.gfastats.sequences.tsv' for a in jc_assemblies(wc.subject)],
         gaps      = lambda wc: [f'jc/{jc_m01_run_id()}/{a}.gfastats.gaps.bed' for a in jc_assemblies(wc.subject)],
         records   = lambda wc: [f'jc/ncbi/{a}/fetch.tsv' for a in jc_assemblies(wc.subject)]
+    # The run folder is a wildcard held to M01's run-ids, so these outputs never claim another jc
+    # metric's run_info.json, sha256sums.txt or _MANIFEST.txt.
     output:
-        gfastats = tier2(f'{run_id()}/gfastats.tsv', 'jc', '{subject}'),
-        gaps     = tier2(f'{run_id()}/gaps.bed', 'jc', '{subject}'),
-        inputs   = tier2(f'{run_id()}/inputs.tsv', 'jc', '{subject}'),
-        run_info = tier2(f'{run_id()}/run_info.json', 'jc', '{subject}'),
-        sha256   = tier2(f'{run_id()}/sha256sums.txt', 'jc', '{subject}'),
-        manifest = tier2(f'{run_id()}/_MANIFEST.txt', 'jc', '{subject}')
+        gfastats = tier2('{jc_m01_run}/gfastats.tsv', 'jc', '{subject}'),
+        gaps     = tier2('{jc_m01_run}/gaps.bed', 'jc', '{subject}'),
+        inputs   = tier2('{jc_m01_run}/inputs.tsv', 'jc', '{subject}'),
+        run_info = tier2('{jc_m01_run}/run_info.json', 'jc', '{subject}'),
+        sha256   = tier2('{jc_m01_run}/sha256sums.txt', 'jc', '{subject}'),
+        manifest = tier2('{jc_m01_run}/_MANIFEST.txt', 'jc', '{subject}')
+    wildcard_constraints:
+        jc_m01_run = r'(assembly_stats|dev)\.[^/]+'
     params:
         run_id     = run_id(),
         lane       = 'jc',
