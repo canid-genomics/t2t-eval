@@ -1,0 +1,52 @@
+{
+  "assemblies": [
+    {
+      "accession": "GCA_062019780.1",
+      "assembly": "ROS_Cfam_2.0_pri",
+      "haplotype": "pri",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    },
+    {
+      "accession": "GCA_062019781.1",
+      "assembly": "ROS_Cfam_2.0_alt",
+      "haplotype": "alt",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    }
+  ],
+  "commit": "e0de0578be7c07af4704add2d7be9352791b9a41",
+  "config_sha256": "9c23856545349cd1f70ba3660bf878830053b160b666337c93b55b6857f4d6f2",
+  "container_python": "3.11.18",
+  "counts": {
+    "ROS_Cfam_2.0_alt": {
+      "gaps": 2,
+      "sequences": 38
+    },
+    "ROS_Cfam_2.0_pri": {
+      "gaps": 2,
+      "sequences": 41
+    }
+  },
+  "created_utc": "2026-11-23T05:53:42Z",
+  "gfastats_commands": {
+    "gaps": "gfastats <genomic.fna.gz> -j <threads> --out-coord g",
+    "sequences": "gfastats <genomic.fna.gz> -j <threads> --path-report --tabular",
+    "summary": "gfastats <genomic.fna.gz> -j <threads> --tabular"
+  },
+  "head": "36b870d527e1515035efa4fa97b3aec930c441dd",
+  "images": {
+    "gfastats": "docker://quay.io/biocontainers/gfastats@sha256:f4903ca4ed682bca6c192cac13f9b0355f149947a7cf3e53bbd2580f3a50bdd7",
+    "python": "docker://ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57"
+  },
+  "lane": "jc",
+  "run_id": "assembly_stats.2026-11-22.e0de057",
+  "spec_id": "M01",
+  "subject": "ROS_Cfam_2.0",
+  "tracked_dirty": false,
+  "versions": {
+    "snakemake": "9.1.1",
+    "snakemake-executor-plugin-slurm": "1.8.0",
+    "snakemake-storage-plugin-s3": "0.3.6"
+  }
+}

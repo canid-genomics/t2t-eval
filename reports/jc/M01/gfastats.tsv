@@ -1,0 +1,855 @@
+assembly	haplotype	accession	scope	seq_id	metric	value
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# scaffolds	41
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Total scaffold length	2469770461
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Average scaffold length	60238303.93
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Scaffold N50	65724464
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Scaffold auN	70358943.10
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Scaffold L50	15
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Largest scaffold	126391136
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Smallest scaffold	16730
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# contigs	43
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Total contig length	2469750461
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Average contig length	57436057.23
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Contig N50	65724464
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Contig auN	70339904.58
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Contig L50	15
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Largest contig	126391136
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Smallest contig	16730
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# gaps in scaffolds	2
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Total gap length in scaffolds	20000
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Average gap length in scaffolds	10000.00
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Gap N50 in scaffolds	10000
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Gap auN in scaffolds	10000.00
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Gap L50 in scaffolds	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Largest gap in scaffolds	10000
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Smallest gap in scaffolds	10000
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Base composition (A:C:G:T)	722078172:512002842:513079002:722590445
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	GC content %	41.51
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# soft-masked bases	836514005
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# segments	43
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Total segment length	2469750461
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	Average segment length	57436057.23
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# gaps	2
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	assembly	NA	# paths	41
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 1, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	Total path length	123547987
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	Total segment length	123547987
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	A	36106337
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	C	25768008
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	G	25756275
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	T	35917367
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	# soft-masked bases	37746863
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199621.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 2, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	Total path length	89318624
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	Total segment length	89318624
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	A	25505486
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	C	19126167
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	G	19131573
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	T	25555398
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	# soft-masked bases	28108306
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199622.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 3, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	Total path length	93427583
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	Total segment length	93427583
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	A	27800593
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	C	18933991
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	G	18907964
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	T	27785035
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	# soft-masked bases	29780394
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199623.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 4, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	Total path length	90084426
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	Total segment length	90084426
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	A	26755956
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	C	18324647
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	G	18286572
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	T	26717251
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	# soft-masked bases	28060547
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199624.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 5, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	Total path length	89683371
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	Total segment length	89683371
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	A	25049925
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	C	19911761
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	G	19830220
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	T	24891465
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	# soft-masked bases	24778181
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199625.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 6, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	Total path length	78564426
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	Total segment length	78564426
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	A	22531366
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	C	16823637
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	G	16774544
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	T	22434879
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	# soft-masked bases	23644547
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199626.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 7, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	Total path length	83350613
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	Total segment length	83330613
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	Contig N	3
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	A	24388262
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	C	17173061
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	G	17191135
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	T	24578155
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	# soft-masked bases	26767201
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199627.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 8, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	Total path length	77889369
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	Total segment length	77889369
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	A	22852208
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	C	15880608
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	G	15933331
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	T	23223222
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	# soft-masked bases	26302201
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199628.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 9, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	Total path length	68774057
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	Total segment length	68774057
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	A	18588083
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	C	15700903
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	G	15737481
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	T	18747590
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	# soft-masked bases	21024824
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199629.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 10, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	Total path length	71755110
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	Total segment length	71755110
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	A	20454878
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	C	15397378
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	G	15382756
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	T	20520098
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	# soft-masked bases	22445659
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199630.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 11, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	Total path length	76526743
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	Total segment length	76526743
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	A	22781523
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	C	15493104
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	G	15463682
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	T	22788434
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	# soft-masked bases	25284665
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199631.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 12, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	Total path length	75985230
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	Total segment length	75985230
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	A	22973592
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	C	15010973
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	G	15011369
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	T	22989296
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	# soft-masked bases	27307517
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199632.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 13, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	Total path length	65481480
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	Total segment length	65481480
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	A	19526395
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	C	13235698
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	G	13188415
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	T	19530972
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	# soft-masked bases	21257635
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199633.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 14, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	Total path length	62443528
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	Total segment length	62443528
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	A	18960560
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	C	12192375
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	G	12180175
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	T	19110418
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	# soft-masked bases	21062195
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199634.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 15, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	Total path length	65724464
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	Total segment length	65724464
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	A	19545286
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	C	13286210
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	G	13295719
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	T	19597249
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	# soft-masked bases	21958445
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199635.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 16, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	Total path length	64995707
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	Total segment length	64995707
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	A	19003433
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	C	13513332
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	G	13467348
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	T	19011594
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	# soft-masked bases	21559486
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199636.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 17, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	Total path length	67399217
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	Total segment length	67399217
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	A	19495109
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	C	14204631
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	G	14144745
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	T	19554732
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	# soft-masked bases	21244501
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199637.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 18, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	Total path length	58293482
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	Total segment length	58293482
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	A	16569630
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	C	12559847
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	G	12532596
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	T	16631409
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	# soft-masked bases	18524513
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199638.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 19, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	Total path length	57090743
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	Total segment length	57090743
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	A	17427229
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	C	11066955
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	G	11072989
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	T	17523570
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	# soft-masked bases	20390820
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199639.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 20, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	Total path length	59559726
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	Total segment length	59559726
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	A	16437589
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	C	13270734
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	G	13264483
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	T	16586920
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	# soft-masked bases	17783746
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199640.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 21, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	Total path length	53586247
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	Total segment length	53586247
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	A	15808561
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	C	10832677
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	G	10862602
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	T	16082407
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	# soft-masked bases	18634253
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199641.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 22, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	Total path length	63420531
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	Total segment length	63420531
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	A	19477095
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	C	12130508
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	G	12137366
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	T	19675562
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	# soft-masked bases	21664939
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199642.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 23, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	Total path length	54603446
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	Total segment length	54603446
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	A	16212247
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	C	10970041
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	G	10988369
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	T	16432789
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	# soft-masked bases	18283852
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199643.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 24, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	Total path length	50079274
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	Total segment length	50079274
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	A	13791911
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	C	11197725
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	G	11199789
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	T	13889849
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	# soft-masked bases	15156711
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199644.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 25, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	Total path length	53316446
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	Total segment length	53316446
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	A	15555052
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	C	11070295
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	G	11081334
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	T	15609765
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	# soft-masked bases	17153440
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199645.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 26, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	Total path length	43208937
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	Total segment length	43208937
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	A	11754693
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	C	9910487
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	G	10027821
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	T	11515936
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	# soft-masked bases	14770997
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199646.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 27, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	Total path length	49802252
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	Total segment length	49802252
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	A	14692601
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	C	10169294
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	G	10251354
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	T	14689003
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	# soft-masked bases	18992206
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199647.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 28, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	Total path length	46251158
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	Total segment length	46251158
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	A	12883848
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	C	10215496
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	G	10479356
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	T	12672458
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	# soft-masked bases	16376646
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199648.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 29, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	Total path length	46082912
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	Total segment length	46082912
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	A	13991443
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	C	9048692
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	G	9164475
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	T	13878302
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	# soft-masked bases	18056833
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199649.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 30, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	Total path length	42103872
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	Total segment length	42103872
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	A	12269017
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	C	8792945
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	G	8746558
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	T	12295352
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	# soft-masked bases	14262554
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199650.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 31, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	Total path length	42792923
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	Total segment length	42792923
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	A	12808121
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	C	8594984
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	G	8700112
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	T	12689706
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	# soft-masked bases	15820179
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199651.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 32, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	Total path length	42421472
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	Total segment length	42421472
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	A	13195340
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	C	8067723
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	G	8140537
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	T	13017872
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	# soft-masked bases	17163843
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199652.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 33, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	Total path length	35932615
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	Total segment length	35932615
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	A	10720342
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	C	7131499
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	G	7021235
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	T	11059539
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	# soft-masked bases	14270978
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199653.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 34, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	Total path length	45907164
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	Total segment length	45907164
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	A	13493130
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	C	9411294
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	G	9643090
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	T	13359650
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	# soft-masked bases	16156059
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199654.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 35, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	Total path length	31134708
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	Total segment length	31134708
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	A	8943460
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	C	6604109
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	G	6814791
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	T	8772348
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	# soft-masked bases	12543201
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199655.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 36, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	Total path length	35899451
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	Total segment length	35899451
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	A	11266730
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	C	6992889
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	G	7046259
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	T	10593573
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	# soft-masked bases	14174454
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199656.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 37, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	Total path length	34024282
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	Total segment length	34024282
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	A	10077110
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	C	6932624
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	G	6883255
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	T	10131293
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	# soft-masked bases	12135790
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199657.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 38, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	Total path length	30918106
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	Total segment length	30918106
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	A	8875321
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	C	6530367
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	G	6767598
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	T	8744820
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	# soft-masked bases	13963126
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199658.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome X, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	Total path length	126391136
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	Total segment length	126391136
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	A	37564619
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	C	25545621
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	G	25601485
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	T	37679411
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	# soft-masked bases	52746567
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199659.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome Y, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	Total path length	21980913
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	Total segment length	21980913
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	A	5938798
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	C	4975284
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	G	4965880
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	T	6100951
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	# soft-masked bases	9155131
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199660.1	Is circular	N
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever mitochondrion, complete sequence, whole genome shotgun sequence
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	Total path length	16730
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	Total segment length	16730
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	Contig N	1
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	A	5293
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	C	4268
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	G	2364
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	T	4805
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	# soft-masked bases	0
+ROS_Cfam_2.0_pri	pri	GCA_062019780.1	sequence	CM199662.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# scaffolds	38
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Total scaffold length	2327902378
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Average scaffold length	61260588.89
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Scaffold N50	65569876
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Scaffold auN	67776102.26
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Scaffold L50	15
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Largest scaffold	123351415
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Smallest scaffold	28473567
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# contigs	40
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Total contig length	2327882378
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Average contig length	58197059.45
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Contig N50	65569876
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Contig auN	67753741.03
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Contig L50	15
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Largest contig	123351415
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Smallest contig	70456
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# gaps in scaffolds	2
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Total gap length in scaffolds	20000
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Average gap length in scaffolds	10000.00
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Gap N50 in scaffolds	10000
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Gap auN in scaffolds	10000.00
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Gap L50 in scaffolds	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Largest gap in scaffolds	10000
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Smallest gap in scaffolds	10000
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Base composition (A:C:G:T)	679878959:483146946:484015841:680840632
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	GC content %	41.55
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# soft-masked bases	781729380
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# segments	40
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Total segment length	2327882378
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	Average segment length	58197059.45
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# gaps	2
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	assembly	NA	# paths	38
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 1, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	Total path length	123351415
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	Total segment length	123351415
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	A	36053613
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	C	25727439
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	G	25706032
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	T	35864331
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	# soft-masked bases	37642939
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199583.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 2, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	Total path length	89615446
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	Total segment length	89615446
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	A	25605996
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	C	19199459
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	G	19192109
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	T	25617882
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	# soft-masked bases	28423984
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199584.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 3, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	Total path length	93634617
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	Total segment length	93634617
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	A	27862334
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	C	18978113
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	G	18953459
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	T	27840711
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	# soft-masked bases	29941400
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199585.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 4, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	Total path length	89867981
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	Total segment length	89867981
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	A	26712991
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	C	18264230
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	G	18229005
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	T	26661755
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	# soft-masked bases	27835185
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199586.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 5, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	Total path length	89849951
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	Total segment length	89849951
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	A	25091130
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	C	19954363
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	G	19874880
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	T	24929578
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	# soft-masked bases	24820680
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199587.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 6, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	Total path length	78590942
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	Total segment length	78590942
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	A	22533755
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	C	16828761
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	G	16787002
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	T	22441424
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	# soft-masked bases	23676887
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199588.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 7, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	Total path length	83495577
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	Total segment length	83475577
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	Contig N	3
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	A	24422576
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	C	17204590
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	G	17224588
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	T	24623823
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	# soft-masked bases	26886015
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199589.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 8, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	Total path length	76415767
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	Total segment length	76415767
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	A	22454516
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	C	15560771
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	G	15626901
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	T	22773579
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	# soft-masked bases	25505281
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199590.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 9, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	Total path length	67151698
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	Total segment length	67151698
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	A	18072314
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	C	15376811
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	G	15432556
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	T	18270017
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	# soft-masked bases	20514908
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199591.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 10, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	Total path length	71811140
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	Total segment length	71811140
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	A	20467604
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	C	15398254
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	G	15383922
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	T	20561360
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	# soft-masked bases	22507920
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199592.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 11, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	Total path length	76286625
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	Total segment length	76286625
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	A	22714927
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	C	15436596
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	G	15409476
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	T	22725626
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	# soft-masked bases	25066513
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199593.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 12, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	Total path length	77771387
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	Total segment length	77771387
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	A	23398325
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	C	15486338
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	G	15456166
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	T	23430558
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	# soft-masked bases	29109086
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199594.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 13, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	Total path length	65569876
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	Total segment length	65569876
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	A	19557277
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	C	13252756
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	G	13204370
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	T	19555473
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	# soft-masked bases	21269523
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199595.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 14, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	Total path length	62534614
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	Total segment length	62534614
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	A	18984276
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	C	12207559
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	G	12202565
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	T	19140214
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	# soft-masked bases	21126147
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199596.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 15, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	Total path length	65661606
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	Total segment length	65661606
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	A	19528062
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	C	13268953
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	G	13278982
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	T	19585609
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	# soft-masked bases	21872841
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199597.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 16, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	Total path length	65491969
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	Total segment length	65491969
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	A	19126467
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	C	13637043
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	G	13591482
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	T	19136977
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	# soft-masked bases	21716955
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199598.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 17, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	Total path length	66970569
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	Total segment length	66970569
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	A	19392549
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	C	14097756
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	G	14041010
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	T	19439254
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	# soft-masked bases	20953350
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199599.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 18, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	Total path length	58619643
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	Total segment length	58619643
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	A	16647213
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	C	12654196
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	G	12607993
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	T	16710241
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	# soft-masked bases	18872662
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199600.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 19, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	Total path length	56555465
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	Total segment length	56555465
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	A	17296113
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	C	10940070
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	G	10945308
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	T	17373974
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	# soft-masked bases	19917108
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199601.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 20, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	Total path length	59543253
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	Total segment length	59543253
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	A	16436570
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	C	13257845
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	G	13260137
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	T	16588701
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	# soft-masked bases	17722587
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199602.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 21, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	Total path length	53813033
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	Total segment length	53813033
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	A	15860745
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	C	10889054
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	G	10914365
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	T	16148869
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	# soft-masked bases	18771726
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199603.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 22, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	Total path length	63416675
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	Total segment length	63416675
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	A	19475105
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	C	12130355
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	G	12131470
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	T	19679745
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	# soft-masked bases	21607615
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199604.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 23, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	Total path length	54438030
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	Total segment length	54438030
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	A	16172818
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	C	10928257
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	G	10946024
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	T	16390931
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	# soft-masked bases	18114332
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199605.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 24, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	Total path length	50386854
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	Total segment length	50386854
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	A	13867472
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	C	11275358
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	G	11266545
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	T	13977479
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	# soft-masked bases	15348042
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199606.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 25, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	Total path length	53297788
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	Total segment length	53297788
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	A	15552494
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	C	11063375
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	G	11077523
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	T	15604396
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	# soft-masked bases	17164724
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199607.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 26, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	Total path length	43914790
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	Total segment length	43914790
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	A	11951242
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	C	10076331
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	G	10165680
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	T	11721537
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	# soft-masked bases	15164551
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199608.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 27, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	Total path length	50788581
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	Total segment length	50788581
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	A	14920749
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	C	10389641
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	G	10461078
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	T	15017113
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	# soft-masked bases	19861958
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199609.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 28, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	Total path length	45339534
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	Total segment length	45339534
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	A	12638131
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	C	9995912
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	G	10181105
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	T	12524386
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	# soft-masked bases	15495688
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199610.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 29, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	Total path length	46142250
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	Total segment length	46142250
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	A	14025387
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	C	9054739
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	G	9214799
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	T	13847325
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	# soft-masked bases	18130376
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199611.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 30, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	Total path length	41734522
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	Total segment length	41734522
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	A	12161331
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	C	8720126
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	G	8670595
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	T	12182470
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	# soft-masked bases	14160227
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199612.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 31, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	Total path length	43220464
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	Total segment length	43220464
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	A	12916516
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	C	8703676
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	G	8788046
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	T	12812226
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	# soft-masked bases	16202939
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199613.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 32, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	Total path length	43182827
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	Total segment length	43182827
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	A	13349637
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	C	8299335
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	G	8378908
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	T	13154947
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	# soft-masked bases	17415499
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199614.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 33, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	Total path length	35386712
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	Total segment length	35386712
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	A	10589303
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	C	7014313
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	G	6922873
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	T	10860223
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	# soft-masked bases	13744964
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199615.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 34, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	Total path length	45917516
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	Total segment length	45917516
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	A	13498168
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	C	9410684
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	G	9645191
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	T	13363473
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	# soft-masked bases	16165011
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199616.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 35, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	Total path length	38834198
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	Total segment length	38834198
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	A	10805656
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	C	8503122
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	G	8769885
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	T	10755535
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	# soft-masked bases	20193192
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199617.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 36, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	Total path length	35492884
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	Total segment length	35492884
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	A	11171126
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	C	6876262
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	G	6945855
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	T	10499641
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	# soft-masked bases	13811168
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199618.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 37, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	Total path length	35332612
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	Total segment length	35332612
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	A	10318159
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	C	7168593
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	G	7075232
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	T	10770628
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	# soft-masked bases	13446200
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199619.1	Is circular	N
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	Comment	Canis lupus familiaris isolate Alfie breed Labrador retriever chromosome 38, whole genome shotgun sequence
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	Total path length	28473567
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	Total segment length	28473567
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	Contig N	1
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	A	8246312
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	C	5915910
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	G	6052724
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	T	8258621
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	# soft-masked bases	11549197
+ROS_Cfam_2.0_alt	alt	GCA_062019781.1	sequence	CM199620.1	Is circular	N
