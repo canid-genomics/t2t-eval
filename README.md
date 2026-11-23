@@ -12,9 +12,29 @@ pixi install                 # snakemake + slurm and S3 plugins (osx-arm64 and l
 direnv allow                 # optional: .envrc activates the pixi env on cd
 wg init                      # your own task graph (.wg/ is gitignored)
 ```
-Interactive sessions: create `.claude/settings.local.json` with `"ask"` for `git add` and
-`git commit` (see CLAUDE.md, commit model). On agate, also write `~/.config/t2t-eval/tier2.env`
-(`AWS_ACCESS_KEY=…`, `AWS_SECRET_KEY=…`, `chmod 600`).
+Interactive Claude sessions in the clone take your own rules from a settings file **outside** the
+clone, passed at launch:
+```bash
+claude --settings ~/.config/t2t-eval/claude-interactive.json
+```
+It holds the `ask` for `git add` and `git commit` (CLAUDE.md, commit model) and anything else
+that is yours alone. Steven's also holds the sf-lane exception's one `allow` (CLAUDE.md, "Where
+work happens"); nobody else's does:
+```json
+{
+  "permissions": {
+    "ask":   ["Bash(git add:*)", "Bash(git commit:*)"],
+    "allow": ["Bash(sbatch slurm/submit.slurm --ticket tickets/sf/*)"]
+  }
+}
+```
+Don't use `.claude/settings.local.json` in the clone, and don't put these rules in your global
+`~/.claude/settings.json`. wg worktrees live inside the clone (`.wg-worktrees/`), so both files
+reach the wg workers too, and an `ask` there stops a worker's `git commit` (LESSONS.md). A file
+you pass with `--settings` reaches only the sessions you start with it.
+
+On agate, also write `~/.config/t2t-eval/tier2.env` (`AWS_ACCESS_KEY=…`, `AWS_SECRET_KEY=…`,
+`chmod 600`).
 
 ## Daily commands
 ```bash

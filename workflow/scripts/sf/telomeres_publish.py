@@ -15,6 +15,9 @@ import platform
 from datetime import datetime, timezone
 from pathlib import Path
 
+# workflow/scripts/utils.py RUN_ID_UNSET: run_id() without a ticket. A run folder never has it.
+RUN_ID_UNSET = 'unset.0000-00-00.0000000'
+
 
 def concat_tsv(paths, dest):
     """Concatenate TSVs that share one header line; refuse if the headers differ."""
@@ -57,6 +60,15 @@ def sha256_file(path):
     return h.hexdigest()
 
 
+def manifest_job(submit_job, step_job):
+    """_MANIFEST.txt `job:`: the submit job's SLURM id (slurm/submit.slurm passes it as --config
+    submit_job), else this publish step's own SLURM_JOB_ID, else None (written as NA)."""
+    for job in (submit_job, step_job):
+        if job not in (None, ''):
+            return str(job)
+    return None
+
+
 def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
     windows = ', '.join(f'{w:,} bp' for w in scan['windows_bp'])
     lines = [
@@ -67,7 +79,7 @@ def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
         f'  Python {platform.python_version()} (container image in run_info.json), stdlib only',
         '',
         'Inputs: NCBI GenBank FASTA and assembly report for each haplotype, downloaded by',
-        'workflow/scripts/sf/ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
+        'workflow/scripts/shared/ncbi_fetch.py and checked against NCBI md5checksums.txt (inputs.tsv).',
     ]
     lines += [f"  {a['haplotype']}: {a['assembly']} {a['accession']}" for a in assemblies]
     lines += [
@@ -97,8 +109,12 @@ def method_text(run_id, subject, scan, scan_script, assemblies, n_rows):
 def publish(scan_tables, chromosome_tables, fetch_records, out, run_id, lane, subject, spec_id,
             assemblies, scan, scan_script, provenance, describes, dest, job=None):
     """Write every file of the run folder; `out` maps output names to local paths, all in one
-    folder (the manifest's `source:`). `dest` is the folder's Tier 2 location, `job` the SLURM job
-    id (None outside SLURM)."""
+    folder (the manifest's `source:`). `dest` is the folder's Tier 2 location, `job` the
+    manifest's `job:` (manifest_job(); None is written as NA). Refuses the no-ticket run_id before
+    writing anything."""
+    if run_id == RUN_ID_UNSET:
+        raise ValueError(f'run_id is unset ({RUN_ID_UNSET}): a Tier 2 run folder needs a ticket '
+                         'run_id (slurm/submit.slurm --ticket tickets/sf/<id>.md)')
     folders = {Path(p).parent.resolve() for p in out.values()}
     if len(folders) != 1:
         raise ValueError(f'outputs span {len(folders)} folders; a run folder is one: {sorted(map(str, folders))}')
@@ -150,4 +166,5 @@ if __name__ == '__main__' and 'snakemake' in globals():
             spec_id=smk.params.spec_id, assemblies=list(smk.params.assemblies),
             scan=dict(smk.params.scan), scan_script=dict(smk.params.scan_script),
             provenance=dict(smk.params.provenance), describes=smk.params.describes,
-            dest=smk.params.dest, job=os.environ.get('SLURM_JOB_ID'))
+            dest=smk.params.dest,
+            job=manifest_job(smk.params.submit_job, os.environ.get('SLURM_JOB_ID')))

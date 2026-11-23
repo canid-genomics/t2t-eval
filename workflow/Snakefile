@@ -18,6 +18,12 @@ if _bad_images:
 workdir: config['workdir']
 include: 'scripts/utils.py'
 
+# Without a ticket, run_id() is the RUN_ID_UNSET placeholder, so --list, --unlock and the like still
+# parse. With offload on, a real run under it stops here, before any job reaches Tier 2. Snakemake
+# skips onstart for dry runs, --list and --unlock.
+onstart:
+    refuse_unset_run_id()
+
 # Absolutize relative reference paths up front. On the cluster these no-op;
 # under config.local.yaml they become repo-rooted so the local fixture resolves.
 def _absolutize_reference_paths():
@@ -38,11 +44,12 @@ wildcard_constraints:
     subject  = r'[^/]+'
 
 # Lane rule files: workflow/rules/<lane>/<metric>.smk, in each lane's own folder.
-# include: 'rules/jc/assembly_stats.smk'
+include: 'rules/jc/assembly_stats.smk'
 include: 'rules/sf/telomeres.smk'
 
 # Each enabled metric's target rule. Tickets name a lane target, never `all`: the run-id is per ticket.
 rule all:
     default_target: True
     input:
+        rules.jc_assembly_stats_all.input,
         rules.sf_telomeres_all.input

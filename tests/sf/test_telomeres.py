@@ -18,15 +18,15 @@ REPO = Path(__file__).resolve().parents[2]
 FIXTURE = REPO / 'tests/sf/fixture/telomeres'
 
 
-def load(name):
-    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/sf/{name}.py')
+def load(name, lane='sf'):
+    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/{lane}/{name}.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
 scan = load('telomere_scan')
-fetch = load('ncbi_fetch')
+fetch = load('ncbi_fetch', 'shared')
 publish = load('telomeres_publish')
 
 PARAMS = dict(scan.DEFAULT_PARAMS)
@@ -297,11 +297,11 @@ class Publish(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def publish(self, out, job='12345678'):
+    def publish(self, out, job='12345678', run_id='telomeres.2026-11-22.aaaaaaa'):
         d = self.dir
         prov = {'commit': 'a' * 40, 'head': 'b' * 40, 'images': {'python': 'img@sha256:x'}}
         publish.publish([d / 'pri.t.tsv', d / 'alt.t.tsv'], [d / 'pri.c.tsv', d / 'alt.c.tsv'],
-                        [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, 'telomeres.2026-11-22.aaaaaaa', 'sf',
+                        [d / 'pri.f.tsv', d / 'alt.f.tsv'], out, run_id, 'sf',
                         'TEST', 'M02', [{'assembly': 'TEST_pri', 'haplotype': 'pri', 'accession': 'GCA_1'}],
                         PARAMS, {'path': 'x.py', 'sha256': 'c' * 64}, prov,
                         describes='SPEC.tsv M02: TEST pri+alt: telomere-motif scan',
@@ -349,8 +349,33 @@ class Publish(unittest.TestCase):
 
     def test_manifest_job_outside_slurm(self):
         out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
-        self.publish(out, job=None)
+        self.publish(out, job=publish.manifest_job('', None))
         self.assertEqual(self.manifest(out)['job'], 'NA')
+
+    def test_manifest_job_is_the_submit_job(self):
+        # M02's manifest recorded its publish step (7853394), not the submit job (7853288).
+        self.assertEqual(publish.manifest_job('7853288', '7853394'), '7853288')
+        self.assertEqual(publish.manifest_job(7853288, None), '7853288')   # --config gives an int
+        self.assertEqual(publish.manifest_job('', '7853394'), '7853394')   # outside submit.slurm
+        self.assertEqual(publish.manifest_job(None, '7853394'), '7853394')
+        self.assertIsNone(publish.manifest_job('', None))
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        self.publish(out, job=publish.manifest_job('7853288', '7853394'))
+        self.assertEqual(self.manifest(out)['job'], '7853288')
+
+    def test_submit_slurm_passes_its_job_id_in_the_one_config(self):
+        text = (REPO / 'slurm/submit.slurm').read_text()
+        config = re.search(r'^CONFIG=\((.*?)\)$', text, re.M | re.S)
+        self.assertIsNotNone(config)
+        self.assertIn('submit_job="${SLURM_JOB_ID:-}"', config[1].split())
+        flags = [l.strip() for l in text.splitlines() if re.match(r'\s*--config\b', l)]
+        self.assertEqual(flags, ['--config "${CONFIG[@]}" \\'])   # one --config: a second replaces it
+
+    def test_unset_run_id_is_refused_before_any_write(self):
+        out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
+        with self.assertRaisesRegex(ValueError, 'run_id is unset'):
+            self.publish(out, run_id=publish.RUN_ID_UNSET)
+        self.assertFalse((self.dir / 'run').exists())
 
     def test_outputs_in_two_folders_fail(self):
         out = {k: self.dir / 'run' / v for k, v in self.NAMES.items()}
