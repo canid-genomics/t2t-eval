@@ -18,15 +18,15 @@ REPO = Path(__file__).resolve().parents[2]
 FIXTURE = REPO / 'tests/sf/fixture/telomeres'
 
 
-def load(name):
-    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/sf/{name}.py')
+def load(name, lane='sf'):
+    spec = importlib.util.spec_from_file_location(name, REPO / f'workflow/scripts/{lane}/{name}.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
 scan = load('telomere_scan')
-fetch = load('ncbi_fetch')
+fetch = load('ncbi_fetch', 'shared')
 publish = load('telomeres_publish')
 
 PARAMS = dict(scan.DEFAULT_PARAMS)

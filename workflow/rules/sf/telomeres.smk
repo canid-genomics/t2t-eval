@@ -124,7 +124,7 @@ rule sf_ncbi_fetch:
     resources:
         slurm_extra = lambda wc: slurm_log_path('sf_ncbi_fetch', wildcards_pattern=wc.assembly)
     container: config['images']['python']
-    script: '../../scripts/sf/ncbi_fetch.py'
+    script: '../../scripts/shared/ncbi_fetch.py'
 
 
 rule sf_telomere_scan:
