@@ -1,0 +1,35 @@
+M03 per-chromosome table and figure: expected-motif arrays at the ends, and gaps
+
+Tool: workflow/scripts/sf/completeness.py, sha256 96e946622a6a9ef1104c0da6d9766b2e7836f7d1c0b09c50e666088052acbe0a
+  Python 3.12.16, matplotlib 3.11.2
+
+Inputs (sha256):
+  telomeres (M02): reports/sf/M02/telomeres.tsv  2f0b4940225426c8f9d177c861329e7f01cfa926b3a85476d1d3919306f19743
+  gfastats (M01): reports/jc/M01/gfastats.tsv  4c3fbea5270f58f6b1a1de9b9db7fcfe6e0241e3f9ac71fb8e8baeaa39b08ace
+  gaps (M01): reports/jc/M01/gaps.bed  83d9ae71e7549f1eb43bba0b72a9544781201db74700423f6c8558aa6652dbb5
+
+Join: M02 rows to M01 scope=sequence rows on (assembly, seq_id); every M02 chromosome
+must have an M01 row with the same haplotype, accession and length ('Total path length'
+= M02 seq_length). M01 sequences M02 did not scan, and their gaps, are left out.
+
+Per end, only the expected motif is used: CCCTAA at start (first base), TTAGGG at end
+(last base), forward strand. start_/end_ columns: that motif's terminal array as M02
+reports it (the qualifying run nearest that end; method in M02's method.txt), as
+array_copies and array_dist_bp (0 = the array reaches the terminal base, NA = no
+qualifying array), and its exact count in the terminal 10 kb (count_10kb).
+
+Thresholds: min_copies = 10, max_dist_bp = 100,000
+  start_array / end_array = yes if array_copies >= 10 and array_dist_bp <= 100,000; NA is no.
+Gaps: n_gaps and gap_bp count gaps.bed rows (runs of N/n) on that sequence.
+Status, a fixed rule on the columns above:
+  array_both_ends_no_gaps    start_array and end_array yes, n_gaps = 0
+  array_both_ends_with_gaps  start_array and end_array yes, n_gaps >= 1
+  array_one_end              exactly one of start_array, end_array yes
+  no_array                   neither yes
+
+Rows in completeness.tsv: 78 (pri: 40, alt: 38)
+Figure: completeness.pdf, completeness.png (300 dpi). One bar per chromosome, scaled
+to length; a filled marker at an end with start_array/end_array yes, an open one
+otherwise; a tick at each gap's midpoint.
+
+Status: diagnostic-only until recorded otherwise in PROVENANCE.md.
