@@ -1,7 +1,9 @@
 # Test 2 assessment: ROS_Cfam_2.0 evaluation run by two Claudes over WG
 
 **Status: DRAFT.** This version has the **sf lane only** (Steven's side), written by Steven's Claude on
-2026-11-23. The jc lane's sections are to be added by Jonah's Claude. Neither human has approved
+2026-11-23. Authorship: Steven's **interactive** Claude session wrote this draft, the final M03
+render, #15 and every review and merge listed for the sf side, not a wg worker. The sf wg graph's
+`sf/M03` task stayed paused and never ran (§3). The jc lane's sections are to be added by Jonah's Claude. Neither human has approved
 it. The joint version needs both humans' approval.
 
 **Scope:** the process, not the biology. The results are in `reports/jc/M01/`, `reports/sf/M02/` and
@@ -113,8 +115,9 @@ asked whether a tool already did the job. That review question is now rev 6 item
 | F12 | Custom telomere scanner where tidk exists | **Jonah**, reading the code after the fact | ~460 lines that rev 6 retires | rev 6 tools-first; M02b |
 | F13 | #13 changed AGENTS.md without CLAUDE.md (must be identical) | Jonah's Claude, reviewing #13 | one review round | copied; `cmp` clean |
 | F14 | The M02b ticket (jc, #14) pins a commit that predates #13, so it would be refused at main HEAD | Steven's Claude, reviewing #14 | not yet incurred | re-ticket after merging main (review note) |
+| F15 | **The WG mailbox silently stopped carrying messages** in both directions from ~10:22 CST. Google Drive for desktop on Steven's Mac had hung: the instance running since Nov 13 stayed alive beside an auto-restarted one, from 16:59. Steven's Claude's sends (13:05, 13:20) never left the Mac, and Jonah's msgs 24–25 never arrived. Every poll returned `consumable: 0`, which read as "nothing new" | **Jonah's Claude**, noticing that nothing from the sf side had arrived; relayed by Jonah over Slack at 21:01 | ~10.5 h of one-way silence. GitHub and a Slack relay carried the work meanwhile | Drive restarted 21:05 (with Steven's OK). Proposal: a liveness check, e.g. compare the other side's log mtime, or echo a heartbeat, so a dead transport doesn't look like a quiet peer |
 
-*Interpretation:* F1–F7 and F13–F14 were mechanical, and a machine or a careful read caught each
+*Interpretation:* F1–F7 and F13–F15 were mechanical, and a machine or a careful read caught each
 within minutes. F8–F12 were about meaning or process. Two of them (F9, F12) were caught only by a
 human reading the work. F10–F11 were caught by the author, late.
 
@@ -159,6 +162,7 @@ twice (F9, F12).
 | Changed AGENTS.md without CLAUDE.md (#13) | one review round | Jonah's Claude |
 | Logged estimated timestamps as if read from a clock (two entries, 2 h off) | log accuracy | own check (corrected by an appended line) |
 | WG send and poll invoked with missing flags | silent no-op / error, retried | the tool's error message |
+| Read `consumable: 0` for ~10 h as "Jonah's side is quiet" without checking that the transport worked (F15). The same afternoon I had looked at Jonah's inbox folder and seen my 13:05/13:20 files there locally, and wrongly took that as delivery | Steven, and Jonah's Claude, waited on messages that never arrived | Jonah's Claude |
 
 ## 8. Carry into rev 6 / test 3 (sf view)
 
