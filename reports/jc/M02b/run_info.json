@@ -1,0 +1,52 @@
+{
+  "assemblies": [
+    {
+      "accession": "GCA_062019780.1",
+      "assembly": "ROS_Cfam_2.0_pri",
+      "haplotype": "pri",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    },
+    {
+      "accession": "GCA_062019781.1",
+      "assembly": "ROS_Cfam_2.0_alt",
+      "haplotype": "alt",
+      "source": "NCBI",
+      "subject": "ROS_Cfam_2.0"
+    }
+  ],
+  "commit": "87749111163795aca9680c61faba95ce06cc8cd8",
+  "config_sha256": "a79bb3ba63479821f0c81733e3a47a37cfb4923c39610788895af45edac873a0",
+  "created_utc": "2026-11-24T02:15:37Z",
+  "files": [
+    "ROS_Cfam_2.0_pri.ends.tsv",
+    "ROS_Cfam_2.0_pri.ends.bed",
+    "ROS_Cfam_2.0_pri.ends.json",
+    "ROS_Cfam_2.0_pri_telomeric_repeat_windows.tsv",
+    "ROS_Cfam_2.0_pri_tidk_plot.svg",
+    "ROS_Cfam_2.0_alt.ends.tsv",
+    "ROS_Cfam_2.0_alt.ends.bed",
+    "ROS_Cfam_2.0_alt.ends.json",
+    "ROS_Cfam_2.0_alt_telomeric_repeat_windows.tsv",
+    "ROS_Cfam_2.0_alt_tidk_plot.svg"
+  ],
+  "head": "304d677ed089e7bacd62ba74cb073bdbdb9e64b6",
+  "images": {
+    "python": "docker://ghcr.io/canid-genomics/python@sha256:a909d1c838b9b40e4274b06b397042e6dd8d4c9b2e2ae7e11ace354268624d57",
+    "tidk": "docker://quay.io/biocontainers/tidk@sha256:8d5b6e6aff8adb6e6f65c6e40ae1c6f5850be0d926022b6085d3d80641678f86"
+  },
+  "lane": "jc",
+  "run_id": "telomeres_tidk.2026-11-23.8774911",
+  "spec_id": "M02b",
+  "subject": "ROS_Cfam_2.0",
+  "tidk_args": {
+    "ends": "--string TTAGGG --window 10000 --min-length 200 --max-offset 1000 --min-sequence-length 1000000",
+    "search": "--string TTAGGG --window 10000 --extension tsv"
+  },
+  "tracked_dirty": false,
+  "versions": {
+    "snakemake": "9.1.1",
+    "snakemake-executor-plugin-slurm": "1.8.0",
+    "snakemake-storage-plugin-s3": "0.3.6"
+  }
+}

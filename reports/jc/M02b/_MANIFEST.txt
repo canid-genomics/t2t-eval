@@ -1,0 +1,12 @@
+describes: SPEC.tsv M02b: ROS_Cfam_2.0 pri+alt: telomere repeats at both ends of every chromosome with tidk 0.3.3 (BioContainers image), compared end by end with M02's custom scan
+source:    /scratch.global/friedlab_T2TEVAL/jc/.snakemake/storage/s3/t2t/ROS_Cfam_2.0/jc/telomeres_tidk.2026-11-23.8774911
+dest:      s3Fried/t2t/ROS_Cfam_2.0/jc/telomeres_tidk.2026-11-23.8774911
+job:       7935950
+scope:     metric
+finished:  2026-11-23T20:15:37-06:00
+objects:   12
+size:      30MiB
+lane:      jc
+commit:    87749111163795aca9680c61faba95ce06cc8cd8
+run_id:    telomeres_tidk.2026-11-23.8774911
+spec_id:   M02b
